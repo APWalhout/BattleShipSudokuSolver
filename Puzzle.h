@@ -11,14 +11,15 @@ class Puzzle
 {
 public:
 	Puzzle(std::string);
-	Puzzle(char[]);
+	//Puzzle(char[]);
 
+	//char code[];
 	unsigned int dimension;
-	unsigned int row[];
-	unsigned int column[];
+	//unsigned int row[];
+	//unsigned int column[];
 	unsigned int maxShipSize;
 	std::string numberOfShips;
-	unsigned int board[][];
+	//unsigned int board[][];
 
 	void deleteMem();
 	void printBoard();
