@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <tests description="tests root description">
   <!--tests for the solver-->
+  <!--endoding is dimension, max ship size, num of each size ship, row sequence, col sequence, board fill-->
   <trivial description="trivial tests">
-    <a description="test a">33110100100000 0000</a>
+    <a description="test a">3110100100000 0000</a>
   </trivial>
 </tests>

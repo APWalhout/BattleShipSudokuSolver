@@ -11,6 +11,7 @@ class Puzzle
 {
 public:
 	Puzzle(std::string);
+	Puzzle(char[]);
 
 	unsigned int dimension;
 	unsigned int row[];
@@ -20,5 +21,6 @@ public:
 	unsigned int board[][];
 
 	void deleteMem();
+	void printBoard();
 };
 #endif
