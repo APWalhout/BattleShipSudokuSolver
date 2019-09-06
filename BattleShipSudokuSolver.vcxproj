@@ -126,10 +126,12 @@
   <ItemGroup>
     <ClCompile Include="include\pugixml.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Puzzle.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\pugiconfig.hpp" />
     <ClInclude Include="include\pugixml.hpp" />
+    <ClInclude Include="Puzzle.h" />
   </ItemGroup>
   <ItemGroup>
     <Xml Include="include\Tests.xml" />
