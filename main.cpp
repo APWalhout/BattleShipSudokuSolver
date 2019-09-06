@@ -1,6 +1,7 @@
 #include <iostream>
 #include <pugixml.hpp>
 #include <pugiconfig.hpp>
+#include <array>
 
 int main()
 {
@@ -42,6 +43,14 @@ int main()
 	std::cout << std::endl;
 	std::cout << "Doc element by path tests/trivial/a child value: " << testsXML.first_element_by_path("tests/trivial/a").child_value() << std::endl;
 
+	//grab the first test's structure string
+	testsXML.first_element_by_path("tests/trivial/a").child_value();
+
+	//need to make a struct that you pass the string into and it constructs a puzzle with needed attributes.
+	//arrays for row and column codes
+	//dimensions
+	//number and size of ships
+	//place existing ships and water where they belong in a multi-dim array
 
 	return 0;
 }
