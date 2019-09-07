@@ -4,10 +4,11 @@ Puzzle::Puzzle(std::string codeStr)
 {
 	//parse through code and allocate data to the variables of puzzle
 	//possibly initializing here would prevent needing new memory
+	//a string is a char array? might not be so complicated
 
 	unsigned int n = codeStr.length();
 	code = new char[n + 1];
-	strcpy(code, codeStr.c_str());
+	strcpy_s(code, n+1, codeStr.c_str());
 
 	dimension = (unsigned int)code[0];
 	maxShipSize = (unsigned int)code[1];
