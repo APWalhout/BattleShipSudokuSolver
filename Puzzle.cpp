@@ -39,9 +39,10 @@ void Puzzle::printBoard()
 	{
 		if (!((x - (2+maxShipSize)) % dimension))
 		{
-			if (x / dimension > 2)
+			if ((x-(2+maxShipSize)) / dimension > 2)
 			{
-				std::cout << code[(x / dimension) + dimension];//adds the appropriate column number
+				//std::cout << code[((x - (2+maxShipSize)) / dimension) + dimension];//adds the appropriate column number
+				std::cout << code[(((x - (2 + maxShipSize)) / dimension) + dimension) + 2 + maxShipSize - 3];
 			}
 			std::cout << "\n";//add the column number here if you can
 		}
@@ -51,9 +52,9 @@ void Puzzle::printBoard()
 		}
 	}
 
-	int y = 3;
+	int y = 2+maxShipSize;
 
-	while (y < (3+dimension))
+	while (y < ((2+maxShipSize)+dimension))
 	{
 		std::cout << " " << code[y] << "  ";
 		++y;
