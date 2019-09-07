@@ -48,6 +48,11 @@ int main()
 	std::string testAStr = testsXML.first_element_by_path("tests/trivial/a").child_value();
 	std::string testBStr = testsXML.first_element_by_path("tests/trivial/b").child_value();
 	std::string testCStr = testsXML.first_element_by_path("tests/trivial/c").child_value();
+	std::string testDStr = testsXML.first_element_by_path("tests/trivial/d").child_value();
+	std::string testEStr = testsXML.first_element_by_path("tests/trivial/e").child_value();
+	std::string testFStr = testsXML.first_element_by_path("tests/trivial/f").child_value();
+
+
 
 
 	std::cout << "\n testAStr: " << testAStr << std::endl;
@@ -62,13 +67,35 @@ int main()
 	testA.printBoard();
 	testA.deleteMem();
 
+	std::cout << "\n testBStr: " << testBStr << std::endl;
+
 	Puzzle testB(testBStr);
 	testB.printBoard();
 	testB.deleteMem();
 
+	std::cout << "\n testCStr: " << testCStr << std::endl;
+
 	Puzzle testC(testCStr);
 	testC.printBoard();
 	testC.deleteMem();
+
+	std::cout << "\n testDStr: " << testDStr << std::endl;
+
+	Puzzle testD(testDStr);
+	testD.printBoard();
+	testD.deleteMem();
+
+	std::cout << "\n testEStr: " << testEStr << std::endl;
+
+	Puzzle testE(testEStr);
+	testE.printBoard();
+	testE.deleteMem();
+
+	std::cout << "\n testFStr: " << testFStr << std::endl;
+
+	Puzzle testF(testFStr);
+	testF.printBoard();
+	testF.deleteMem();
 
 	return 0;
 }

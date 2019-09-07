@@ -35,12 +35,29 @@ void Puzzle::printBoard()
 	unsigned int x = 1 + maxShipSize + (dimension * 2) + 1;//starting point for filling the board
 	unsigned int size = x + (dimension * dimension);
 	//loop to fill the board
-	for (x; x < size; ++x)
+	for (x; x < size+1; ++x)
 	{
 		if (!((x - (2+maxShipSize)) % dimension))
 		{
-			std::cout << "\n";
+			if (x / dimension > 2)
+			{
+				std::cout << code[(x / dimension) + dimension];//adds the appropriate column number
+			}
+			std::cout << "\n";//add the column number here if you can
 		}
-		std::cout << "[" << code[x] << "] ";
+		if (x < size)
+		{
+			std::cout << "[" << code[x] << "] ";
+		}
 	}
+
+	int y = 3;
+
+	while (y < (3+dimension))
+	{
+		std::cout << " " << code[y] << "  ";
+		++y;
+	}
+
+	std::cout << "\n\n";
 }

@@ -6,5 +6,8 @@
     <a description="test a">3110100100000 0000</a>
     <b description="test b">4110100010000000 0000000000</b>
     <c description="test c">300000000000 0000</c>
+    <d description="test d">3201200110 00 00000</d>
+    <e description="test e">312123456789abcdef</e>
+    <f description="test f">41212345678123456789abcdefg</f>
   </trivial>
 </tests>
