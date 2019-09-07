@@ -15,7 +15,7 @@ public:
 
 	//char code[];'
 	char* code;
-	unsigned int dimension;
+	int dimension;
 	//unsigned int row[];
 	//unsigned int column[];
 	unsigned int maxShipSize;

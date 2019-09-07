@@ -45,7 +45,12 @@ int main()
 	std::cout << "Doc element by path tests/trivial/a child value: " << testsXML.first_element_by_path("tests/trivial/a").child_value() << std::endl;
 
 	//grab the first test's structure string
-	testsXML.first_element_by_path("tests/trivial/a").child_value();
+	std::string testAStr = testsXML.first_element_by_path("tests/trivial/a").child_value();
+	std::string testBStr = testsXML.first_element_by_path("tests/trivial/b").child_value();
+	std::string testCStr = testsXML.first_element_by_path("tests/trivial/c").child_value();
+
+
+	std::cout << "\n testAStr: " << testAStr << std::endl;
 
 	//need to make a struct that you pass the string into and it constructs a puzzle with needed attributes.
 	//arrays for row and column codes
@@ -53,9 +58,17 @@ int main()
 	//number and size of ships
 	//place existing ships and water where they belong in a multi-dim array
 
-	Puzzle testA(testsXML.first_element_by_path("tests/trivial/a").child_value());
+	Puzzle testA(testAStr);
 	testA.printBoard();
 	testA.deleteMem();
+
+	Puzzle testB(testBStr);
+	testB.printBoard();
+	testB.deleteMem();
+
+	Puzzle testC(testCStr);
+	testC.printBoard();
+	testC.deleteMem();
 
 	return 0;
 }

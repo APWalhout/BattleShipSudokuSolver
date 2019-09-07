@@ -4,5 +4,7 @@
   <!--endoding is dimension, max ship size, num of each size ship, row sequence, col sequence, board fill-->
   <trivial description="trivial tests">
     <a description="test a">3110100100000 0000</a>
+    <b description="test b">4110100010000000 0000000000</b>
+    <c description="test c">300000000000 0000</c>
   </trivial>
 </tests>

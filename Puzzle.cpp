@@ -10,8 +10,9 @@ Puzzle::Puzzle(std::string codeStr)
 	code = new char[n + 1];
 	strcpy_s(code, n+1, codeStr.c_str());
 
-	dimension = (unsigned int)code[0];
-	maxShipSize = (unsigned int)code[1];
+	dimension = code[0] - '0';
+	maxShipSize = code[1] - '0';
+
 }
 /*
 Puzzle::Puzzle(char code[])
