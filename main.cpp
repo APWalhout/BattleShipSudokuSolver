@@ -2,6 +2,7 @@
 #include <pugixml.hpp>
 #include <pugiconfig.hpp>
 #include <array>
+#include "Puzzle.h"
 
 int main()
 {
@@ -51,6 +52,10 @@ int main()
 	//dimensions
 	//number and size of ships
 	//place existing ships and water where they belong in a multi-dim array
+
+	Puzzle testA(testsXML.first_element_by_path("tests/trivial/a").child_value());
+	testA.printBoard();
+	testA.deleteMem();
 
 	return 0;
 }

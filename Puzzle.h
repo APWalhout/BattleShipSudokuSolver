@@ -13,12 +13,13 @@ public:
 	Puzzle(std::string);
 	//Puzzle(char[]);
 
-	//char code[];
+	//char code[];'
+	char* code;
 	unsigned int dimension;
 	//unsigned int row[];
 	//unsigned int column[];
 	unsigned int maxShipSize;
-	std::string numberOfShips;
+	//std::string numberOfShips;
 	//unsigned int board[][];
 
 	void deleteMem();

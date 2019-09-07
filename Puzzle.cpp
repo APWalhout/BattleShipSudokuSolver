@@ -4,6 +4,13 @@ Puzzle::Puzzle(std::string codeStr)
 {
 	//parse through code and allocate data to the variables of puzzle
 	//possibly initializing here would prevent needing new memory
+
+	unsigned int n = codeStr.length();
+	code = new char[n + 1];
+	strcpy(code, codeStr.c_str());
+
+	dimension = (unsigned int)code[0];
+	maxShipSize = (unsigned int)code[1];
 }
 /*
 Puzzle::Puzzle(char code[])
@@ -15,7 +22,7 @@ Puzzle::Puzzle(char code[])
 
 void Puzzle::deleteMem()
 {
-	
+	delete [] code;
 }
 
 void Puzzle::printBoard()
@@ -23,8 +30,8 @@ void Puzzle::printBoard()
 	std::cout << "Dimensions: " << dimension << "x" << dimension << std::endl;
 	std::cout << "Max Ship Size: " << maxShipSize << std::endl;
 
-	int x = 1 + maxShipSize + (dimension * 2) + 1;//starting point for filling the board
-	int size = x + (dimension * dimension);
+	unsigned int x = 1 + maxShipSize + (dimension * 2) + 1;//starting point for filling the board
+	unsigned int size = x + (dimension * dimension);
 	//loop to fill the board
 	for (x; x < size; ++x)
 	{
