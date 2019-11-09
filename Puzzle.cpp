@@ -26,12 +26,12 @@ void Puzzle::printBoard()
 	std::cout << "Dimensions: " << dimension << "x" << dimension << std::endl;
 	std::cout << "Max Ship Size: " << maxShipSize << std::endl;
 
-	unsigned int x = 1 + maxShipSize + (dimension * 2) + 1;//starting point for filling the board, why?
-	unsigned int size = x + (dimension * dimension);//what is this the size of?
+	unsigned int x = 1 + maxShipSize + (dimension * 2) + 1;//starting point for filling the board, skips the 'iterator' x ahead of the qualifier characters in the encoding
+	unsigned int size = x + (dimension * dimension);//size of the encoded string dim^2 board tiles plus the starting qualifier characters of x
 	//loop to fill the board
 	for (x; x < size+1; ++x)
 	{
-		if (!((x - (2+maxShipSize)) % dimension))//what are these common terms?
+		if (!((x - (2+maxShipSize)) % dimension))//if the iterator is pointing at the last char in a dimension, start the next line of the board
 		{
 			if ((x-(2+maxShipSize)) / dimension > 2)
 			{
@@ -48,7 +48,7 @@ void Puzzle::printBoard()
 
 	int y = 2+maxShipSize;//what is this?
 
-	while (y < ((2+maxShipSize)+dimension))//what does this do, why?
+	while (y < ((2+maxShipSize)+dimension))//what does this do, why? adds row numbers? why use y and not dim = code[0]?
 	{
 		std::cout << " " << code[y] << "  ";
 		++y;
@@ -64,4 +64,7 @@ void Puzzle::printBoard()
 13 % 5 = 3
 
 Column index is 2+max+dim??? needs verification
+maxShipSize holds data for the alg, but is also a buffer unit.
+there are extra characters in the encoding depending upon the maxShipSize 
+so it must be used to compute the location of the 'iterator'
 */
