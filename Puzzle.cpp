@@ -2,10 +2,6 @@
 
 Puzzle::Puzzle(std::string codeStr)
 {
-	//parse through code and allocate data to the variables of puzzle
-	//possibly initializing here would prevent needing new memory
-	//a string is a char array? might not be so complicated
-
 	unsigned int n = codeStr.length();
 	code = new char[n + 1];
 	strcpy_s(code, n+1, codeStr.c_str());
@@ -14,13 +10,6 @@ Puzzle::Puzzle(std::string codeStr)
 	maxShipSize = code[1] - '0';
 
 }
-/*
-Puzzle::Puzzle(char code[])
-{
-	dimension = code[0];
-	maxShipSize = code[1];
-
-}*/
 
 void Puzzle::deleteMem()
 {
@@ -44,7 +33,7 @@ void Puzzle::printBoard()
 				//std::cout << code[((x - (2+maxShipSize)) / dimension) + dimension];//adds the appropriate column number
 				std::cout << code[(((x - (2 + maxShipSize)) / dimension) + dimension) + 2 + maxShipSize - 3];
 			}
-			std::cout << "\n";//add the column number here if you can
+			std::cout << "\n";//add the column number here
 		}
 		if (x < size)
 		{

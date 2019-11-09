@@ -25,7 +25,7 @@ int main()
 	else
 		std::cout << "file is NOT empty\n";
 
-	//std::cout << "setRes: " << setRes << std::endl;
+	//optional traversal visualization
 	std::cout << "Child_value(): " << testsXML.child_value() << std::endl;
 	std::cout << "Child 'trivial': " << testsXML.child("trivial") << std::endl;
 	std::cout << "Child 'trivial' name: " << testsXML.child("trivial").name() << std::endl;
@@ -54,14 +54,8 @@ int main()
 
 
 
-
+	//test clusters
 	std::cout << "\n testAStr: " << testAStr << std::endl;
-
-	//need to make a struct that you pass the string into and it constructs a puzzle with needed attributes.
-	//arrays for row and column codes
-	//dimensions
-	//number and size of ships
-	//place existing ships and water where they belong in a multi-dim array
 
 	Puzzle testA(testAStr);
 	testA.printBoard();

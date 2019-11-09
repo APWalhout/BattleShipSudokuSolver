@@ -2,27 +2,22 @@
 #ifndef PUZZLE_H
 #define PUZZLE_H
 #include <iostream>
-//need to make a struct that you pass the string into and it constructs a puzzle with needed attributes.
-//arrays for row and column codes
-//dimensions
-//number and size of ships
-//place existing ships and water where they belong in a multi-dim array
+
 class Puzzle
 {
-public:
-	Puzzle(std::string);
-	//Puzzle(char[]);
-
-	//char code[];'
+private:
 	char* code;
-	int dimension;
-	//unsigned int row[];
-	//unsigned int column[];
-	unsigned int maxShipSize;
-	//std::string numberOfShips;
-	//unsigned int board[][];
 
+	unsigned int dimension;
+	unsigned int maxShipSize;
+
+public:
+	//constructor that assembles the necessary data for printing alg
+	Puzzle(std::string);
+
+	//manual garbage collection of new data from contstructor
 	void deleteMem();
+	//displays a board visualization in linear time
 	void printBoard();
 };
 #endif
