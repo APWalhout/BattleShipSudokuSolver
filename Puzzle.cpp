@@ -26,8 +26,8 @@ void Puzzle::printBoard()
 	std::cout << "Dimensions: " << dimension << "x" << dimension << std::endl;
 	std::cout << "Max Ship Size: " << maxShipSize << std::endl;
 
-	unsigned int x = 1 + maxShipSize + (dimension * 2) + 1;//starting point for filling the board, skips the 'iterator' x ahead of the qualifier characters in the encoding
-	unsigned int size = x + (dimension * dimension);//size of the encoded string dim^2 board tiles plus the starting qualifier characters of x
+	unsigned int x = 1 + maxShipSize + (dimension * 2) + 1;//starting point for filling the board: skips the 'iterator' x ahead of the qualifier characters in the encoding
+	unsigned int size = x + (dimension * dimension);//size of the encoded string: dim^2 board tiles plus the starting qualifier characters of x
 	//loop to fill the board
 	for (x; x < size+1; ++x)
 	{
@@ -38,9 +38,9 @@ void Puzzle::printBoard()
 				//std::cout << code[((x - (2+maxShipSize)) / dimension) + dimension];//adds the appropriate column number
 				std::cout << code[(((x - (2 + maxShipSize)) / dimension) + dimension) + 2 + maxShipSize - 3];
 			}
-			std::cout << "\n";//add the column number here, does the if or the while add it?
+			std::cout << "\n";//wrap to the next line of the board,,add the column number here, does the if or the while add it?
 		}
-		if (x < size)
+		if (x < size)//if x still points to board entries, add that entry to the display
 		{
 			std::cout << "[" << code[x] << "] ";
 		}
