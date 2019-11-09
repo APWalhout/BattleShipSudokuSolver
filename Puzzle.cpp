@@ -3,7 +3,7 @@
 Puzzle::Puzzle(std::string codeStr)
 {
 	unsigned int n = codeStr.length();
-	code = new char[n + 1];//needs to be deleted with deleteMem after construction
+	code = new char[n + 1];//needs to be deleted with deleteMem after use by printboard
 	strcpy_s(code, n+1, codeStr.c_str());
 
 	dimension = code[0] - '0';
@@ -22,22 +22,23 @@ void Puzzle::deleteMem()
 //the board cannot be smaller than 3x3
 void Puzzle::printBoard()
 {
+	//optional stat visualization
 	std::cout << "Dimensions: " << dimension << "x" << dimension << std::endl;
 	std::cout << "Max Ship Size: " << maxShipSize << std::endl;
 
-	unsigned int x = 1 + maxShipSize + (dimension * 2) + 1;//starting point for filling the board
-	unsigned int size = x + (dimension * dimension);
+	unsigned int x = 1 + maxShipSize + (dimension * 2) + 1;//starting point for filling the board, why?
+	unsigned int size = x + (dimension * dimension);//what is this the size of?
 	//loop to fill the board
 	for (x; x < size+1; ++x)
 	{
-		if (!((x - (2+maxShipSize)) % dimension))
+		if (!((x - (2+maxShipSize)) % dimension))//what are these common terms?
 		{
 			if ((x-(2+maxShipSize)) / dimension > 2)
 			{
 				//std::cout << code[((x - (2+maxShipSize)) / dimension) + dimension];//adds the appropriate column number
 				std::cout << code[(((x - (2 + maxShipSize)) / dimension) + dimension) + 2 + maxShipSize - 3];
 			}
-			std::cout << "\n";//add the column number here
+			std::cout << "\n";//add the column number here, does the if or the while add it?
 		}
 		if (x < size)
 		{
@@ -45,9 +46,9 @@ void Puzzle::printBoard()
 		}
 	}
 
-	int y = 2+maxShipSize;
+	int y = 2+maxShipSize;//what is this?
 
-	while (y < ((2+maxShipSize)+dimension))
+	while (y < ((2+maxShipSize)+dimension))//what does this do, why?
 	{
 		std::cout << " " << code[y] << "  ";
 		++y;
