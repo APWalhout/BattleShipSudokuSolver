@@ -56,3 +56,12 @@ void Puzzle::printBoard()
 
 	std::cout << "\n\n";
 }
+/*
+9 % 3 = 0, 3 is mindim
+
+11 % 4 = 3
+
+13 % 5 = 3
+
+Column index is 2+max+dim??? needs verification
+*/
