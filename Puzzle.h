@@ -3,6 +3,7 @@
 #define PUZZLE_H
 #include <iostream>
 
+//this class stores and manipulates data from a encoded line to produce a visualization of a game board
 class Puzzle
 {
 private:

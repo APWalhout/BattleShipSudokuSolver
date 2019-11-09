@@ -3,7 +3,7 @@
 Puzzle::Puzzle(std::string codeStr)
 {
 	unsigned int n = codeStr.length();
-	code = new char[n + 1];
+	code = new char[n + 1];//needs to be deleted with deleteMem after construction
 	strcpy_s(code, n+1, codeStr.c_str());
 
 	dimension = code[0] - '0';
@@ -16,6 +16,10 @@ void Puzzle::deleteMem()
 	delete [] code;
 }
 
+//calculates the size of the board,
+//the location and count of column and row numbers
+//loops through the data and displays in a linear time, extensible alg
+//the board cannot be smaller than 3x3
 void Puzzle::printBoard()
 {
 	std::cout << "Dimensions: " << dimension << "x" << dimension << std::endl;

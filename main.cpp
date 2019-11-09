@@ -9,6 +9,8 @@ int main()
 	//set up and load settings xml doc
 	pugi::xml_document testsXML;
 	pugi::xml_parse_result testsResult = testsXML.load_file("../BattleShipSudokuSolver/include/Tests.xml");
+
+	//verification tests
 	if (testsResult)
 	{
 		std::cout << "File found\n";
