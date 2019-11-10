@@ -31,14 +31,13 @@ void Puzzle::printBoard()
 	//loop to fill the board
 	for (x; x < size+1; ++x)
 	{
-		if (!((x - (2+maxShipSize)) % dimension))//if the iterator is pointing at the last char in a dimension, start the next line of the board
+		if (!((x - (2+maxShipSize)) % dimension))//if the iterator is pointing at the first char in the next row, print the row number and start the next line of the board
 		{
-			if ((x-(2+maxShipSize)) / dimension > 2)
+			if ((x-(2+maxShipSize)) / dimension > 2)//makes sure the iterator isn't on the first char of the first row, only when on the first char of higher rows should the column number print
 			{
-				//std::cout << code[((x - (2+maxShipSize)) / dimension) + dimension];//adds the appropriate column number
-				std::cout << code[(((x - (2 + maxShipSize)) / dimension) + dimension) + 2 + maxShipSize - 3];
+				std::cout << code[(((x - (2 + maxShipSize)) / dimension) + dimension) + 2 + maxShipSize - 3];//navigates to the appropriate column number
 			}
-			std::cout << "\n";//wrap to the next line of the board,,add the column number here, does the if or the while add it?
+			std::cout << "\n";//wrap to the next line of the board, executes before the first row is printed as well
 		}
 		if (x < size)//if x still points to board entries, add that entry to the display
 		{
@@ -46,9 +45,9 @@ void Puzzle::printBoard()
 		}
 	}
 
-	int y = 2+maxShipSize;//what is this?
+	int y = 2+maxShipSize;//navigates y as an 'iterator' to point to the first row number
 
-	while (y < ((2+maxShipSize)+dimension))//what does this do, why? adds row numbers? why use y and not dim = code[0]?
+	while (y < ((2+maxShipSize)+dimension))//while row numbers still haven't been printed, print them
 	{
 		std::cout << " " << code[y] << "  ";
 		++y;
@@ -56,15 +55,3 @@ void Puzzle::printBoard()
 
 	std::cout << "\n\n";
 }
-/*
-9 % 3 = 0, 3 is mindim
-
-11 % 4 = 3
-
-13 % 5 = 3
-
-Column index is 2+max+dim??? needs verification
-maxShipSize holds data for the alg, but is also a buffer unit.
-there are extra characters in the encoding depending upon the maxShipSize 
-so it must be used to compute the location of the 'iterator'
-*/
