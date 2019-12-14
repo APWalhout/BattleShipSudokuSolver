@@ -3,10 +3,10 @@
 Puzzle::Puzzle(std::string codeStr)
 {
 	unsigned int n = codeStr.length();
-	code = new char[n + 1];//needs to be deleted with deleteMem after use by printboard
-	strcpy_s(code, n+1, codeStr.c_str());
+	code = new char[n + 1];//needs to be deleted with deleteMem after use by printBoard
+	strcpy_s(code, n+1, codeStr.c_str());//make sure you actually need to copy it into a new object
 
-	dimension = code[0] - '0';
+	dimension = code[0] - '0';//see if a string can be referenced this way
 	maxShipSize = code[1] - '0';
 
 }
