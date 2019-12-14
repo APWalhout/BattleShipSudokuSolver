@@ -45,12 +45,12 @@ void Puzzle::printBoard()
 		}
 	}
 
-	int y = 2+maxShipSize;//navigates y as an 'iterator' to point to the first row number
+	int rowIndex = 2+maxShipSize;//navigates rowIndex as an 'iterator' to point to the first row number
 
-	while (y < ((2+maxShipSize)+dimension))//while row numbers still haven't been printed, print them
+	while (rowIndex < ((2+maxShipSize)+dimension))//while row numbers still haven't been printed, print them
 	{
-		std::cout << " " << code[y] << "  ";
-		++y;
+		std::cout << " " << code[rowIndex] << "  ";
+		++rowIndex;
 	}
 
 	std::cout << "\n\n";
