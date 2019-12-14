@@ -26,9 +26,11 @@ void Puzzle::printBoard()
 	std::cout << "Dimensions: " << dimension << "x" << dimension << std::endl;
 	std::cout << "Max Ship Size: " << maxShipSize << std::endl;
 
+	//make sure x is a useful name and check your const
 	unsigned int x = 1 + maxShipSize + (dimension * 2) + 1;//starting point for filling the board: skips the 'iterator' x ahead of the qualifier characters in the encoding
 	unsigned int size = x + (dimension * dimension);//size of the encoded string: dim^2 board tiles plus the starting qualifier characters of x
 	//loop to fill the board
+	//why not use a while loop?
 	for (x; x < size+1; ++x)
 	{
 		if (!((x - (2+maxShipSize)) % dimension))//if the iterator is pointing at the first char in the next row, print the row number and start the next line of the board
@@ -47,6 +49,7 @@ void Puzzle::printBoard()
 
 	int rowIndex = 2+maxShipSize;//navigates rowIndex as an 'iterator' to point to the first row number
 
+	//why use a while loop?
 	while (rowIndex < ((2+maxShipSize)+dimension))//while row numbers still haven't been printed, print them
 	{
 		std::cout << " " << code[rowIndex] << "  ";
