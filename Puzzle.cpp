@@ -2,9 +2,9 @@
 
 Puzzle::Puzzle(std::string codeStr)
 {
-	unsigned int n = codeStr.length();
-	code = new char[n + 1];//needs to be deleted with deleteMem after use by printBoard
-	strcpy_s(code, n + 1, codeStr.c_str());//make sure you actually need to copy it into a new object
+	unsigned int stringLength = codeStr.length();
+	code = new char[stringLength + 1];//needs to be deleted with deleteMem after use by printBoard
+	strcpy_s(code, stringLength + 1, codeStr.c_str());//make sure you actually need to copy it into a new object
 
 	dimension = code[0] - '0';//see if a string can be referenced this way
 	maxShipSize = code[1] - '0';
@@ -28,14 +28,14 @@ void Puzzle::printBoard()
 
 	//make sure check your const
 	unsigned int boardDataIndex = 1 + maxShipSize + (dimension * 2) + 1;//starting point for filling the board: skips boardDataIndex ahead of the qualifier characters in the encoding
-	const unsigned int size = boardDataIndex + (dimension * dimension);//size of the encoded string: dim^2 board tiles plus the starting qualifier characters of boardDataIndex
+	const unsigned int stringSize = boardDataIndex + (dimension * dimension);//size of the encoded string: dim^2 board tiles plus the starting qualifier characters of boardDataIndex
 
 	/*
 	 * Generates the board visualization
 	 * boardDataIndex points to the first element of data for populating the board in the encoded string
 	 * Terminates upon reaching the end of the encoded string
 	 */
-	for (boardDataIndex; boardDataIndex < size + 1; ++boardDataIndex)
+	for (boardDataIndex; boardDataIndex < stringSize + 1; ++boardDataIndex)
 	{
 		if (!((boardDataIndex - (2 + maxShipSize)) % dimension))//if boardDataIndex is pointing at the first char in the next row, print the row number and start the next line of the board
 		{
@@ -45,7 +45,7 @@ void Puzzle::printBoard()
 			}
 			std::cout << "\n";//wrap to the next line of the board, executes before the first row is printed as well
 		}
-		if (boardDataIndex < size)//if x still points to board entries, add that entry to the display
+		if (boardDataIndex < stringSize)//if x still points to board entries, add that entry to the display
 		{
 			std::cout << "[" << code[boardDataIndex] << "] ";
 		}
@@ -56,7 +56,7 @@ void Puzzle::printBoard()
 	 * rowIndex points to the first row number in the encoded string
 	 * Terminates upon reaching the location of col numbers in encoded string
 	 */
-	for (int rowIndex = 2 + maxShipSize; rowIndex < ((2 + maxShipSize) + dimension); ++rowIndex)
+	for (unsigned int rowIndex = 2 + maxShipSize; rowIndex < ((2 + maxShipSize) + dimension); ++rowIndex)
 	{
 		std::cout << " " << code[rowIndex] << "  ";
 	}
