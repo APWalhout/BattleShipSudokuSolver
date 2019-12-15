@@ -11,6 +11,7 @@ Puzzle::Puzzle(std::string codeStr)
 
 }
 
+//Manual garbage collection
 void Puzzle::deleteMem()
 {
 	delete [] code;
@@ -22,11 +23,6 @@ void Puzzle::deleteMem()
 //the board cannot be smaller than 3x3
 void Puzzle::printBoard()
 {
-	//debug stat visualization
-	std::cout << "Dimensions: " << dimension << "x" << dimension << std::endl;
-	std::cout << "Max Ship Size: " << maxShipSize << std::endl;
-
-	//make sure check your const
 	unsigned int boardDataIndex = 1 + maxShipSize + (dimension * 2) + 1;//starting point for filling the board: skips boardDataIndex ahead of the qualifier characters in the encoding
 	const unsigned int stringSize = boardDataIndex + (dimension * dimension);//size of the encoded string: dim^2 board tiles plus the starting qualifier characters of boardDataIndex
 
@@ -39,13 +35,13 @@ void Puzzle::printBoard()
 	{
 		if (!((boardDataIndex - (2 + maxShipSize)) % dimension))//if boardDataIndex is pointing at the first char in the next row, print the row number and start the next line of the board
 		{
-			if ((boardDataIndex - (2 + maxShipSize)) / dimension > 2)//makes sure boardDataIndex isn't on the first char of the first row, only when on the first char of higher rows should the column number print
+			if ((boardDataIndex - (2 + maxShipSize)) / dimension > 2)//makes sure boardDataIndex isn't on the first char of the first row, only when on the first char of subsequent rows should the column number print
 			{
 				std::cout << code[(((boardDataIndex - (2 + maxShipSize)) / dimension) + dimension) + 2 + maxShipSize - 3];//navigates to the appropriate column number
 			}
 			std::cout << "\n";//wrap to the next line of the board, executes before the first row is printed as well
 		}
-		if (boardDataIndex < stringSize)//if x still points to board entries, add that entry to the display
+		if (boardDataIndex < stringSize)//if boardDataIndex still points to board entries, add that entry to the display
 		{
 			std::cout << "[" << code[boardDataIndex] << "] ";
 		}
@@ -61,5 +57,5 @@ void Puzzle::printBoard()
 		std::cout << " " << code[rowIndex] << "  ";
 	}
 
-	std::cout << "\n\n";//spacing accommodation for other prints
+	std::cout << "\n\n";//spacing accommodation for future print calls
 }
