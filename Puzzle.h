@@ -3,7 +3,7 @@
 #define PUZZLE_H
 #include <iostream>
 
-//this class stores and manipulates data from a encoded line to produce a visualization of a game board
+//This class stores and manipulates data from an encoded line to construct and display a game board
 class Puzzle
 {
 private:
@@ -13,12 +13,11 @@ private:
 	unsigned int maxShipSize;
 
 public:
-	//constructor that assembles the necessary data for printing alg
 	Puzzle(std::string);
 
-	//manual garbage collection of new data from contstructor
+	//Garbage collection, call it after finishing using a Puzzle object
 	void deleteMem();
-	//displays a board visualization in linear time
+	//Prints a constructed puzzle board to console
 	void printBoard();
 };
 #endif

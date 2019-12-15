@@ -2,7 +2,7 @@
 
 Puzzle::Puzzle(std::string codeStr)
 {
-	unsigned int stringLength = codeStr.length();
+	const unsigned int stringLength = codeStr.length();
 	code = new char[stringLength + 1];//needs to be deleted with deleteMem after use by printBoard
 	strcpy_s(code, stringLength + 1, codeStr.c_str());//make sure you actually need to copy it into a new object
 
