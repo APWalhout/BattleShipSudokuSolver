@@ -17,18 +17,20 @@ void Puzzle::deleteMem()
 	delete [] code;
 }
 
-//calculates the size of the board,
-//the location and count of column and row numbers
-//loops through the data and displays in a linear time, extensible alg
-//the board cannot be smaller than 3x3
+/*
+ * Assembles and prints a visualization of the puzzle board to console
+ * boardDataIndex is the starting point (ahead of qualifier chars) for the data to populate the board with in the encoded string
+ * stringSize is the length of the encoded string: dimension^2 board tiles plus the starting qualifier chars represented by boardDataIndex's starting value
+ * The main looping algorithm performs in linear time, the alg can handle enormous board sizes (positive size will never be a limitation) 
+ * NOTE: the game cannot use boards smaller than 4x4 and this alg cannot calculate board sizes smaller than 3x3
+ */
 void Puzzle::printBoard()
 {
-	unsigned int boardDataIndex = 1 + maxShipSize + (dimension * 2) + 1;//starting point for filling the board: skips boardDataIndex ahead of the qualifier characters in the encoding
-	const unsigned int stringSize = boardDataIndex + (dimension * dimension);//size of the encoded string: dim^2 board tiles plus the starting qualifier characters of boardDataIndex
+	unsigned int boardDataIndex = 1 + maxShipSize + (dimension * 2) + 1;
+	const unsigned int stringSize = boardDataIndex + (dimension * dimension);
 
 	/*
 	 * Generates the board visualization
-	 * boardDataIndex points to the first element of data for populating the board in the encoded string
 	 * Terminates upon reaching the end of the encoded string
 	 */
 	for (boardDataIndex; boardDataIndex < stringSize + 1; ++boardDataIndex)
