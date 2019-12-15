@@ -32,18 +32,27 @@ void Puzzle::printBoard()
 	/*
 	 * Generates the board visualization
 	 * Terminates upon reaching the end of the encoded string
+	 * This FOR just prints every data entry, formatted. The majority of work is in appropriate line wrapping
 	 */
 	for (boardDataIndex; boardDataIndex < stringSize + 1; ++boardDataIndex)
 	{
-		if (!((boardDataIndex - (2 + maxShipSize)) % dimension))//if boardDataIndex is pointing at the first char in the next row, print the row number and start the next line of the board
-		{
-			if ((boardDataIndex - (2 + maxShipSize)) / dimension > 2)//makes sure boardDataIndex isn't on the first char of the first row, only when on the first char of subsequent rows should the column number print
+		/*
+		 * This whole IF block just handles recognizing when to line wrap and print column display data
+		 * If boardDataIndex is pointing at the first char in the next row, print the row number and start the next line of the board
+		 */
+		if (!((boardDataIndex - (2 + maxShipSize)) % dimension))
+		{   
+			//makes sure boardDataIndex isn't on the first char of the first row, only when on the first char of subsequent rows should the column number print
+			if ((boardDataIndex - (2 + maxShipSize)) / dimension > 2)
 			{
-				std::cout << code[(((boardDataIndex - (2 + maxShipSize)) / dimension) + dimension) + 2 + maxShipSize - 3];//navigates to the appropriate column number
+				//navigates to the index of the appropriate col number and prints it
+				std::cout << code[(((boardDataIndex - (2 + maxShipSize)) / dimension) + dimension) + 2 + maxShipSize - 3];
 			}
-			std::cout << "\n";//wrap to the next line of the board, executes before the first row is printed as well
+			//wrap to the next line of the board, executes before the first row is printed as well
+			std::cout << "\n";
 		}
-		if (boardDataIndex < stringSize)//if boardDataIndex still points to board entries, add that entry to the display
+		
+		if (boardDataIndex < stringSize)
 		{
 			std::cout << "[" << code[boardDataIndex] << "] ";
 		}
@@ -59,5 +68,5 @@ void Puzzle::printBoard()
 		std::cout << " " << code[rowIndex] << "  ";
 	}
 
-	std::cout << "\n\n";//spacing accommodation for future print calls
+	std::cout << "\n\n";
 }
