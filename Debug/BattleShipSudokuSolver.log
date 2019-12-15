@@ -1,5 +1,3 @@
 ﻿  Puzzle.cpp
-  main.cpp
-  Generating Code...
-C:\Users\clefs\Documents\Visual Studio Projects\BattleShipSudokuSolver\BattleShipSudokuSolver\Puzzle.cpp(53,18): warning C4018:  '<': signed/unsigned mismatch
+C:\Users\clefs\Documents\Visual Studio Projects\BattleShipSudokuSolver\BattleShipSudokuSolver\Puzzle.cpp(58,48): warning C4018:  '<': signed/unsigned mismatch
   BattleShipSudokuSolver.vcxproj -> C:\Users\clefs\Documents\Visual Studio Projects\BattleShipSudokuSolver\Debug\BattleShipSudokuSolver.exe

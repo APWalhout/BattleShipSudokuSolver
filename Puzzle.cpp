@@ -22,38 +22,42 @@ void Puzzle::deleteMem()
 //the board cannot be smaller than 3x3
 void Puzzle::printBoard()
 {
-	//optional stat visualization
+	//debug stat visualization
 	std::cout << "Dimensions: " << dimension << "x" << dimension << std::endl;
 	std::cout << "Max Ship Size: " << maxShipSize << std::endl;
 
 	//make sure x is a useful name and check your const
-	unsigned int x = 1 + maxShipSize + (dimension * 2) + 1;//starting point for filling the board: skips the 'iterator' x ahead of the qualifier characters in the encoding
-	unsigned int size = x + (dimension * dimension);//size of the encoded string: dim^2 board tiles plus the starting qualifier characters of x
+	unsigned int boardDataIndex = 1 + maxShipSize + (dimension * 2) + 1;//starting point for filling the board: skips the 'iterator' x ahead of the qualifier characters in the encoding
+	unsigned int size = boardDataIndex + (dimension * dimension);//size of the encoded string: dim^2 board tiles plus the starting qualifier characters of x
 	//loop to fill the board
 	//why not use a while loop?
-	for (x; x < size+1; ++x)
+	for (boardDataIndex; boardDataIndex< size+1; ++boardDataIndex)
 	{
-		if (!((x - (2+maxShipSize)) % dimension))//if the iterator is pointing at the first char in the next row, print the row number and start the next line of the board
+		if (!((boardDataIndex - (2+maxShipSize)) % dimension))//if the iterator is pointing at the first char in the next row, print the row number and start the next line of the board
 		{
-			if ((x-(2+maxShipSize)) / dimension > 2)//makes sure the iterator isn't on the first char of the first row, only when on the first char of higher rows should the column number print
+			if ((boardDataIndex-(2+maxShipSize)) / dimension > 2)//makes sure the iterator isn't on the first char of the first row, only when on the first char of higher rows should the column number print
 			{
-				std::cout << code[(((x - (2 + maxShipSize)) / dimension) + dimension) + 2 + maxShipSize - 3];//navigates to the appropriate column number
+				std::cout << code[(((boardDataIndex - (2 + maxShipSize)) / dimension) + dimension) + 2 + maxShipSize - 3];//navigates to the appropriate column number
 			}
 			std::cout << "\n";//wrap to the next line of the board, executes before the first row is printed as well
 		}
-		if (x < size)//if x still points to board entries, add that entry to the display
+		if (boardDataIndex < size)//if x still points to board entries, add that entry to the display
 		{
-			std::cout << "[" << code[x] << "] ";
+			std::cout << "[" << code[boardDataIndex] << "] ";
 		}
 	}
 
 	int rowIndex = 2+maxShipSize;//navigates rowIndex as an 'iterator' to point to the first row number
 
-	//why use a while loop?
-	while (rowIndex < ((2+maxShipSize)+dimension))//while row numbers still haven't been printed, print them
+	//why use a while loop? while is for ambiguity, for is for defined exact known termination
+	/*while (rowIndex < ((2+maxShipSize)+dimension))//while row numbers still haven't been printed, print them
 	{
 		std::cout << " " << code[rowIndex] << "  ";
 		++rowIndex;
+	}*/
+	for (int rowIndex = 2 + maxShipSize; rowIndex < ((2 + maxShipSize) + dimension); ++rowIndex)
+	{
+		std::cout << " " << code[rowIndex] << "  ";
 	}
 
 	std::cout << "\n\n";
