@@ -7,7 +7,6 @@
 class Puzzle
 {
 private:
-	//char* code;
 	std::string code;
 
 	unsigned int dimension;

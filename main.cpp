@@ -23,13 +23,13 @@ int main()
 	else
 		std::cout << "File is not empty\n";
 
-	//grab the first test's structure string
-	std::string testAStr = testsXML.first_element_by_path("tests/trivial/a").child_value();
-	std::string testBStr = testsXML.first_element_by_path("tests/trivial/b").child_value();
-	std::string testCStr = testsXML.first_element_by_path("tests/trivial/c").child_value();
-	std::string testDStr = testsXML.first_element_by_path("tests/trivial/d").child_value();
-	std::string testEStr = testsXML.first_element_by_path("tests/trivial/e").child_value();
-	std::string testFStr = testsXML.first_element_by_path("tests/trivial/f").child_value();
+	//grab the test's encoded strings
+	const std::string testAStr = testsXML.first_element_by_path("tests/trivial/a").child_value();
+	const std::string testBStr = testsXML.first_element_by_path("tests/trivial/b").child_value();
+	const std::string testCStr = testsXML.first_element_by_path("tests/trivial/c").child_value();
+	const std::string testDStr = testsXML.first_element_by_path("tests/trivial/d").child_value();
+	const std::string testEStr = testsXML.first_element_by_path("tests/trivial/e").child_value();
+	const std::string testFStr = testsXML.first_element_by_path("tests/trivial/f").child_value();
 
 	//test clusters
 	std::cout << "\n testAStr: " << testAStr << std::endl;
