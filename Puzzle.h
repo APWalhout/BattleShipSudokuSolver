@@ -17,8 +17,6 @@ public:
 	//Assigns values for later algorithms and holds a copy of the encoded string to pass around
 	Puzzle(std::string);
 
-	//Garbage collection, call it after finishing using a Puzzle object
-	void deleteMem();
 	//Prints a constructed puzzle board to console
 	void printBoard();
 };

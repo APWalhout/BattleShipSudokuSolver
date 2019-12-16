@@ -3,19 +3,11 @@
 Puzzle::Puzzle(std::string codeStr)
 {
 	const unsigned int stringLength = codeStr.length();
-	//code = new char[stringLength + 1];
-	//strcpy_s(code, stringLength + 1, codeStr.c_str());
 	code = codeStr;
 
 	//-'0' is for conversion from ASCII to numerical values
 	dimension = code[0] -'0';
 	maxShipSize = code[1] -'0';
-}
-
-//Manual garbage collection
-void Puzzle::deleteMem()
-{
-	//delete [] code;
 }
 
 /*

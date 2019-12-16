@@ -19,13 +19,13 @@ int main()
 		std::cout << "File not found\n";
 	if (!testsResult)
 	{
-		std::cout << "File also not found\n";
+		std::cout << "File not found\n";
 	}
 
 	if (testsXML.empty())
 		std::cout << "file is empty\n";
 	else
-		std::cout << "file is NOT empty\n";
+		std::cout << "file is not empty\n";
 
 	//optional traversal visualization
 	std::cout << "Child_value(): " << testsXML.child_value() << std::endl;
@@ -61,37 +61,31 @@ int main()
 
 	Puzzle testA(testAStr);
 	testA.printBoard();
-	testA.deleteMem();
 
 	std::cout << "\n testBStr: " << testBStr << std::endl;
 
 	Puzzle testB(testBStr);
 	testB.printBoard();
-	testB.deleteMem();
 
 	std::cout << "\n testCStr: " << testCStr << std::endl;
 
 	Puzzle testC(testCStr);
 	testC.printBoard();
-	testC.deleteMem();
 
 	std::cout << "\n testDStr: " << testDStr << std::endl;
 
 	Puzzle testD(testDStr);
 	testD.printBoard();
-	testD.deleteMem();
 
 	std::cout << "\n testEStr: " << testEStr << std::endl;
 
 	Puzzle testE(testEStr);
 	testE.printBoard();
-	testE.deleteMem();
 
 	std::cout << "\n testFStr: " << testFStr << std::endl;
 
 	Puzzle testF(testFStr);
 	testF.printBoard();
-	testF.deleteMem();
 
 	return 0;
 }
