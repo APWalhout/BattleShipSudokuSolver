@@ -2,7 +2,7 @@
 #include <pugixml.hpp>
 #include <pugiconfig.hpp>
 #include <array>
-#include "Puzzle.h"
+#include "Board.h"
 
 int main()
 {
@@ -33,27 +33,27 @@ int main()
 
 	//test clusters
 	std::cout << "\n testAStr: " << testAStr << std::endl;
-	Puzzle testA(testAStr);
+	Board testA(testAStr);
 	testA.printBoard();
 
 	std::cout << "\n testBStr: " << testBStr << std::endl;
-	Puzzle testB(testBStr);
+	Board testB(testBStr);
 	testB.printBoard();
 
 	std::cout << "\n testCStr: " << testCStr << std::endl;
-	Puzzle testC(testCStr);
+	Board testC(testCStr);
 	testC.printBoard();
 
 	std::cout << "\n testDStr: " << testDStr << std::endl;
-	Puzzle testD(testDStr);
+	Board testD(testDStr);
 	testD.printBoard();
 
 	std::cout << "\n testEStr: " << testEStr << std::endl;
-	Puzzle testE(testEStr);
+	Board testE(testEStr);
 	testE.printBoard();
 
 	std::cout << "\n testFStr: " << testFStr << std::endl;
-	Puzzle testF(testFStr);
+	Board testF(testFStr);
 	testF.printBoard();
 
 	return 0;

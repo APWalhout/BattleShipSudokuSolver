@@ -21,7 +21,7 @@
     <ClCompile Include="include\pugixml.cpp">
       <Filter>Resource Files</Filter>
     </ClCompile>
-    <ClCompile Include="Puzzle.cpp">
+    <ClCompile Include="Board.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -32,7 +32,7 @@
     <ClInclude Include="include\pugixml.hpp">
       <Filter>Resource Files</Filter>
     </ClInclude>
-    <ClInclude Include="Puzzle.h">
+    <ClInclude Include="Board.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

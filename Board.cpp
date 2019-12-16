@@ -1,6 +1,6 @@
-#include "Puzzle.h"
+#include "Board.h"
 
-Puzzle::Puzzle(std::string codeStr)
+Board::Board(std::string codeStr)
 {
 	const unsigned int stringLength = codeStr.length();
 	code = codeStr;
@@ -17,7 +17,7 @@ Puzzle::Puzzle(std::string codeStr)
  * The main looping algorithm performs in linear time, the alg can handle enormous board sizes (positive size will never be a limitation) 
  * NOTE: the game cannot use boards smaller than 4x4 and this alg cannot calculate board sizes smaller than 3x3
  */
-void Puzzle::printBoard()
+void Board::printBoard()
 {
 	unsigned int boardDataIndex = maxShipSize + (dimension * 2) + 2;
 	const unsigned int stringSize = boardDataIndex + (dimension * dimension);

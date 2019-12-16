@@ -1,10 +1,10 @@
 #pragma once
-#ifndef PUZZLE_H
-#define PUZZLE_H
+#ifndef BOARD_H
+#define BOARD_H
 #include <iostream>
 
 //This class stores and manipulates data from an encoded string to construct and display a game board
-class Puzzle
+class Board
 {
 private:
 	std::string code;
@@ -14,7 +14,7 @@ private:
 
 public:
 	//Assigns values for later algorithms and holds a copy of the encoded string to pass around
-	Puzzle(std::string);
+	Board(std::string);
 
 	//Prints a constructed puzzle board to console
 	void printBoard();
