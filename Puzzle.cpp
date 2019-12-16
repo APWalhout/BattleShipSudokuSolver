@@ -3,17 +3,18 @@
 Puzzle::Puzzle(std::string codeStr)
 {
 	const unsigned int stringLength = codeStr.length();
-	code = new char[stringLength + 1];
-	strcpy_s(code, stringLength + 1, codeStr.c_str());
+	//code = new char[stringLength + 1];
+	//strcpy_s(code, stringLength + 1, codeStr.c_str());
+	code = codeStr;
 
-	dimension = code[0] - '0';
-	maxShipSize = code[1] - '0';
+	dimension = code[0] -'0';//what does the -'0' do? is there some terminating character?
+	maxShipSize = code[1] -'0';
 }
 
 //Manual garbage collection
 void Puzzle::deleteMem()
 {
-	delete [] code;
+	//delete [] code;
 }
 
 /*

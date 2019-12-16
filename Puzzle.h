@@ -7,7 +7,8 @@
 class Puzzle
 {
 private:
-	char* code;
+	//char* code;
+	std::string code;
 
 	unsigned int dimension;
 	unsigned int maxShipSize;
