@@ -7,7 +7,8 @@ Puzzle::Puzzle(std::string codeStr)
 	//strcpy_s(code, stringLength + 1, codeStr.c_str());
 	code = codeStr;
 
-	dimension = code[0] -'0';//what does the -'0' do? is there some terminating character?
+	//-'0' is for conversion from ASCII to numerical values
+	dimension = code[0] -'0';
 	maxShipSize = code[1] -'0';
 }
 
