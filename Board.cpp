@@ -2,32 +2,30 @@
 
 Board::Board(std::string codeStr)
 {
-	const unsigned int stringLength = codeStr.length();
+	stringLength = codeStr.length();
 	code = codeStr;
 
 	//-'0' is for conversion from ASCII to numerical values
-	dimension = code[0] -'0';
-	maxShipSize = code[1] -'0';
+	dimension = code[0] - '0'; 
+	maxShipSize = code[1] - '0';
 }
 
 /*
  * Assembles and prints a visualization of the puzzle board to console
  * boardDataIndex is the starting point (ahead of qualifier chars) for the data to populate the board with in the encoded string
- * stringSize is the length of the encoded string: dimension^2 board tiles plus the starting qualifier chars represented by boardDataIndex's starting value
  * The main looping algorithm performs in linear time, the alg can handle enormous board sizes (positive size will never be a limitation) 
  * NOTE: the game cannot use boards smaller than 4x4 and this alg cannot calculate board sizes smaller than 3x3
  */
-void Board::printBoard()
+bool Board::printBoard()
 {
 	unsigned int boardDataIndex = maxShipSize + (dimension * 2) + 2;
-	const unsigned int stringSize = boardDataIndex + (dimension * dimension);
 
 	/*
 	 * Generates the board visualization
 	 * Terminates upon reaching the end of the encoded string
 	 * This FOR just prints every data entry, formatted. The majority of work is in appropriate line wrapping
 	 */
-	for (boardDataIndex; boardDataIndex < stringSize + 1; ++boardDataIndex)
+	for (boardDataIndex; boardDataIndex < stringLength + 1; ++boardDataIndex)
 	{
 		/*
 		 * This whole IF block just handles recognizing when to line wrap and print column display data
@@ -45,7 +43,7 @@ void Board::printBoard()
 			std::cout << "\n";
 		}
 		
-		if (boardDataIndex < stringSize)
+		if (boardDataIndex < stringLength)
 		{
 			std::cout << "[" << code[boardDataIndex] << "] ";
 		}
@@ -62,4 +60,5 @@ void Board::printBoard()
 	}
 
 	std::cout << "\n\n";
+	return 1;
 }

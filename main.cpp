@@ -31,6 +31,9 @@ int main()
 	const std::string testEStr = testsXML.first_element_by_path("tests/trivial/e").child_value();
 	const std::string testFStr = testsXML.first_element_by_path("tests/trivial/f").child_value();
 
+	//grab the fail's encoded strings
+	const std::string failGStr = testsXML.first_element_by_path("tests/fails/g").child_value();
+
 	//test clusters
 	std::cout << "\n testAStr: " << testAStr << std::endl;
 	Board testA(testAStr);
@@ -56,5 +59,10 @@ int main()
 	Board testF(testFStr);
 	testF.printBoard();
 
-	return 0;
+	//fail test clusters
+	/*std::cout << "\n failGStr: " << failGStr << std::endl;
+	Board failG(failGStr);
+	failG.printBoard();*/
+
+	return 1;
 }

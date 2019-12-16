@@ -8,7 +8,8 @@ class Board
 {
 private:
 	std::string code;
-
+	
+	unsigned int stringLength;
 	unsigned int dimension;
 	unsigned int maxShipSize;
 
@@ -17,6 +18,6 @@ public:
 	Board(std::string);
 
 	//Prints a constructed puzzle board to console
-	void printBoard();
+	bool printBoard();
 };
 #endif
