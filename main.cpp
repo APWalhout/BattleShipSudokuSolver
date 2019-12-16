@@ -1,7 +1,6 @@
 #include <iostream>
 #include <pugixml.hpp>
 #include <pugiconfig.hpp>
-#include <array>
 #include "Board.h"
 
 int main()
