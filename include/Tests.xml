@@ -12,5 +12,9 @@
   </trivial>
   <fails description="falure tests">
     <g description="fail g">abcdefghijklmnopqr</g>
+    <h description="fail h">211111111111111111</h>
+    <i description="fail i">301111111111111111</i>
+    <j description="fail j">a1cdefghijklmnopqr</j>
+    <k description="fail k">3201200110 00 000001111111111111</k>
   </fails>
 </tests>

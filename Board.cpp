@@ -20,6 +20,12 @@ bool Board::printBoard()
 {
 	unsigned int boardDataIndex = maxShipSize + (dimension * 2) + 2;
 
+	//error catching
+	if (dimension < 3) { std::cout << "Exception thrown: dimension smaller than 3 \n"; return 0; }
+	if (maxShipSize < 1 || maxShipSize > dimension) { std::cout << "Exception thrown: maxShipSize doesn't fit board \n"; return 0; }
+	if (stringLength < dimension) { std::cout << "Exception thrown: dimension greater than data \n"; return 0; }
+	if (((dimension * dimension) + boardDataIndex) < stringLength) { std::cout << "Exception thrown: board smaller than data \n"; return 0; }
+
 	/*
 	 * Generates the board visualization
 	 * Terminates upon reaching the end of the encoded string

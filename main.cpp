@@ -33,6 +33,10 @@ int main()
 
 	//grab the fail's encoded strings
 	const std::string failGStr = testsXML.first_element_by_path("tests/fails/g").child_value();
+	const std::string failHStr = testsXML.first_element_by_path("tests/fails/h").child_value();
+	const std::string failIStr = testsXML.first_element_by_path("tests/fails/i").child_value();
+	const std::string failJStr = testsXML.first_element_by_path("tests/fails/j").child_value();
+	const std::string failKStr = testsXML.first_element_by_path("tests/fails/k").child_value();
 
 	//test clusters
 	std::cout << "\n testAStr: " << testAStr << std::endl;
@@ -60,9 +64,25 @@ int main()
 	testF.printBoard();
 
 	//fail test clusters
-	/*std::cout << "\n failGStr: " << failGStr << std::endl;
+	std::cout << "\n failGStr: " << failGStr << std::endl;
 	Board failG(failGStr);
-	failG.printBoard();*/
+	failG.printBoard();
+	
+	std::cout << "\n failHStr: " << failHStr << std::endl;
+	Board failH(failHStr);
+	failH.printBoard();
+
+	std::cout << "\n failIStr: " << failIStr << std::endl;
+	Board failI(failIStr);
+	failI.printBoard();
+
+	std::cout << "\n failJStr: " << failJStr << std::endl;
+	Board failJ(failJStr);
+	failJ.printBoard();
+
+	std::cout << "\n failKStr: " << failKStr << std::endl;
+	Board failK(failKStr);
+	failK.printBoard();
 
 	return 1;
 }
