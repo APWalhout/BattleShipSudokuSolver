@@ -25,7 +25,7 @@ void Puzzle::deleteMem()
  */
 void Puzzle::printBoard()
 {
-	unsigned int boardDataIndex = 1 + maxShipSize + (dimension * 2) + 1;
+	unsigned int boardDataIndex = maxShipSize + (dimension * 2) + 2;
 	const unsigned int stringSize = boardDataIndex + (dimension * dimension);
 
 	/*
