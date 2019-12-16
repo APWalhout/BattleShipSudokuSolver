@@ -2,7 +2,6 @@
 #ifndef BOARD_H
 #define BOARD_H
 #include <iostream>
-#include <typeinfo>
 
 //This class stores and manipulates data from an encoded string to construct and display a game board
 class Board
