@@ -17,4 +17,5 @@ public:
 
 	//Prints a constructed puzzle board to console
 	bool printBoard();
+	std::string printBoardString();
 };

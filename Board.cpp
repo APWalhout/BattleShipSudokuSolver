@@ -69,4 +69,48 @@ bool Board::printBoard()
 	return 1;
 }
 
-//should have function std::string printBoardString() which packages the board as a string to display in a window, one step up from console
+/*
+ * Simple refactor of printBoard() that returns the board as a string rather than a live build to the console
+ * boardStr is the string that the alg builds the board into for return
+ * This can be used to pass the board to a window for simple display
+ * This function is otherwise identical to printBoard() and exists as an exploration on how to package data
+ */
+std::string Board::printBoardString()
+{
+	std::string boardStr = "";
+	unsigned int boardDataIndex = maxShipSize + (dimension * 2) + 2;
+
+	if (dimension < 3) { boardStr += "Exception thrown: dimension smaller than 3 \n"; return boardStr; }
+	if (maxShipSize < 1 || maxShipSize > dimension) { boardStr += "Exception thrown: maxShipSize doesn't fit board \n"; return boardStr; }
+	if (stringLength < dimension) { boardStr += "Exception thrown: dimension greater than data \n"; return boardStr; }
+	if (((dimension * dimension) + boardDataIndex) < stringLength) { boardStr += "Exception thrown: board smaller than data \n"; return boardStr; }
+
+	for (boardDataIndex; boardDataIndex < stringLength + 1; ++boardDataIndex)
+	{
+		if (!((boardDataIndex - (2 + maxShipSize)) % dimension))
+		{
+			if ((boardDataIndex - (2 + maxShipSize)) / dimension > 2)
+			{
+				boardStr += code[(((boardDataIndex - (2 + maxShipSize)) / dimension) + dimension) + 2 + maxShipSize - 3];
+			}
+			boardStr += "\n";
+		}
+
+		if (boardDataIndex < stringLength)
+		{
+			boardStr += "[";
+			boardStr += code[boardDataIndex];
+			boardStr += "] ";
+		}
+	}
+
+	for (unsigned int rowIndex = 2 + maxShipSize; rowIndex < ((2 + maxShipSize) + dimension); ++rowIndex)
+	{
+		boardStr += " ";
+		boardStr += code[rowIndex];
+		boardStr += "  ";
+	}
+
+	boardStr += "\n\n";
+	return boardStr;
+}

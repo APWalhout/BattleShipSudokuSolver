@@ -61,11 +61,15 @@ int main()
 	std::cout << "\n testFStr: " << testFStr << std::endl;
 	Board testF(testFStr);
 	testF.printBoard();
+	std::cout << "testing the string method: \n";
+	std::cout << testF.printBoardString();
 
 	//fail test clusters
 	std::cout << "\n failGStr: " << failGStr << std::endl;
 	Board failG(failGStr);
 	failG.printBoard();
+	std::cout << "testing string method: \n";
+	std::cout << failG.printBoardString();
 	
 	std::cout << "\n failHStr: " << failHStr << std::endl;
 	Board failH(failHStr);
