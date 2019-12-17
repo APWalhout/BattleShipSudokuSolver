@@ -68,3 +68,5 @@ bool Board::printBoard()
 	std::cout << "\n\n";
 	return 1;
 }
+
+//should have function std::string printBoardString() which packages the board as a string to display in a window, one step up from console

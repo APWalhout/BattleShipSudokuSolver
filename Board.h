@@ -1,6 +1,4 @@
 #pragma once
-#ifndef BOARD_H
-#define BOARD_H
 #include <iostream>
 
 //This class stores and manipulates data from an encoded string to construct and display a game board
@@ -20,4 +18,3 @@ public:
 	//Prints a constructed puzzle board to console
 	bool printBoard();
 };
-#endif
