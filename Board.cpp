@@ -5,8 +5,8 @@ Board::Board(std::string codeStr)
 	stringLength = codeStr.length();
 	code = codeStr;
 
-	//-'0' is for conversion from ASCII to numerical values
-	dimension = code[0] - '0'; 
+	//-'0' is for conversion from ASCII to numerical values, importing and using a function is more work than would be efficient for this trivial use
+	dimension = code[0] - '0';
 	maxShipSize = code[1] - '0';
 }
 
