@@ -13,7 +13,7 @@ Board::Board(std::string codeStr)
 Board::Board(const unsigned int dimension, std::string shipList, std::string rowHints, std::string colHints, std::string dataString)
 {
 	this->dimension = dimension;
-	shipVector;
+	shipVector;//what if included commas in the formatting. would allow quantities larger than 9 and some easier/fancier work
 
 }
 
