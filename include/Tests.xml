@@ -17,4 +17,13 @@
     <j description="fail j">a1cdefghijklmnopqr</j>
     <k description="fail k">3201200110 00 000001111111111111</k>
   </fails>
+  <samples description="sample tests using separated data">
+    <boardA description="sample board A">
+      <dimension description="dimension value">3</dimension>
+      <shipList description="list of ship quantities by size S-L">1</shipList>
+      <rowNumbers description="list of row hints">010</rowNumbers>
+      <colNumbers description="list of column hints">010</colNumbers>
+      <boardData description="data to populate the board with">0000 0000</boardData>
+    </boardA>
+  </samples>
 </tests>

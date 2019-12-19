@@ -10,6 +10,13 @@ Board::Board(std::string codeStr)
 	maxShipSize = code[1] - '0';
 }
 
+Board::Board(const unsigned int dimension, std::string shipList, std::string rowHints, std::string colHints, std::string dataString)
+{
+	this->dimension = dimension;
+	shipVector;
+
+}
+
 /*
  * Assembles and prints a visualization of the puzzle board to console
  * boardDataIndex is the starting point (ahead of qualifier chars) for the data to populate the board with in the encoded string
