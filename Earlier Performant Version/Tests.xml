@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tests description="tests root description">
+  <!--tests for printing-->
+  <!--encoding format is: dimension, max ship size, num of each size ship starting from largest size, row sequence, col sequence, board fill data-->
+  <trivial description="trivial tests">
+    <a description="test a">3110100100000 0000</a>
+    <b description="test b">4110100010000000 0000000000</b>
+    <c description="test c">300000000000 0000</c>
+    <d description="test d">3201200110 00 00000</d>
+    <e description="test e">312123456789abcdef</e>
+    <f description="test f">41212345678123456789abcdefg</f>
+  </trivial>
+  <fails description="falure tests">
+    <g description="fail g">abcdefghijklmnopqr</g>
+    <h description="fail h">211111111111111111</h>
+    <i description="fail i">301111111111111111</i>
+    <j description="fail j">a1cdefghijklmnopqr</j>
+    <k description="fail k">3201200110 00 000001111111111111</k>
+  </fails>
+</tests>
