@@ -37,6 +37,16 @@ int main()
 	const std::string failJStr = testsXML.first_element_by_path("tests/fails/j").child_value();
 	const std::string failKStr = testsXML.first_element_by_path("tests/fails/k").child_value();
 
+	//test board A
+	const std::string dimensionTest = testsXML.first_element_by_path("tests/samples/boardA/dimension").child_value();
+	const std::string shipSizeTest = testsXML.first_element_by_path("tests/samples/boardA/shipList").child_value();
+	const std::string rowTest = testsXML.first_element_by_path("tests/samples/boardA/rowNumbers").child_value();
+	const std::string colTest = testsXML.first_element_by_path("tests/samples/boardA/colNumbers").child_value();
+	const std::string dataTest = testsXML.first_element_by_path("tests/samples/boardA/boardData").child_value();
+
+	std::cout << "test of the wholistic method: \n";
+	Board wholeTest(dimensionTest, shipSizeTest, rowTest, colTest, dataTest);
+
 	//test clusters
 	std::cout << "\n testAStr: " << testAStr << std::endl;
 	Board testA(testAStr);

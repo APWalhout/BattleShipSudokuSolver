@@ -10,11 +10,41 @@ Board::Board(std::string codeStr)
 	maxShipSize = code[1] - '0';
 }
 
-Board::Board(const unsigned int dimension, std::string shipList, std::string rowHints, std::string colHints, std::string dataString)
+Board::Board(std::string dimensionString, std::string shipList, std::string rowHints, std::string colHints, std::string dataString)
 {
-	this->dimension = dimension;
-	shipVector;//what if included commas in the formatting. would allow quantities larger than 9 and some easier/fancier work
+	dimension = std::stoi(dimensionString);
 
+	std::stringstream shipStream(shipList);
+	while (shipStream.good())
+	{
+		std::string subStr;
+		std::getline(shipStream, subStr, ',');
+		shipVector.push_back(std::stoi(subStr));
+	}
+
+	std::stringstream rowStream(rowHints);
+	while (rowStream.good())
+	{
+		std::string subStr;
+		std::getline(rowStream, subStr, ',');
+		rowVector.push_back(std::stoi(subStr));
+	}
+
+	std::stringstream colStream(colHints);
+	while (colStream.good())
+	{
+		std::string subStr;
+		std::getline(colStream, subStr, ',');
+		colVector.push_back(std::stoi(subStr));
+	}
+
+	std::stringstream dataStream(dataString);
+	while (dataStream.good())
+	{
+		std::string subStr;
+		std::getline(dataStream, subStr, ',');
+		dataVector.push_back(std::stoi(subStr));
+	}
 }
 
 /*
