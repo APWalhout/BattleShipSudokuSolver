@@ -13,38 +13,10 @@ Board::Board(std::string codeStr)
 Board::Board(std::string dimensionString, std::string shipList, std::string rowHints, std::string colHints, std::string dataString)
 {
 	dimension = std::stoi(dimensionString);
-
-	std::stringstream shipStream(shipList);
-	while (shipStream.good())
-	{
-		std::string subStr;
-		std::getline(shipStream, subStr, ',');
-		shipVector.push_back(std::stoi(subStr));
-	}
-
-	std::stringstream rowStream(rowHints);
-	while (rowStream.good())
-	{
-		std::string subStr;
-		std::getline(rowStream, subStr, ',');
-		rowVector.push_back(std::stoi(subStr));
-	}
-
-	std::stringstream colStream(colHints);
-	while (colStream.good())
-	{
-		std::string subStr;
-		std::getline(colStream, subStr, ',');
-		colVector.push_back(std::stoi(subStr));
-	}
-
-	std::stringstream dataStream(dataString);
-	while (dataStream.good())
-	{
-		std::string subStr;
-		std::getline(dataStream, subStr, ',');
-		dataVector.push_back(std::stoi(subStr));
-	}
+	shipVector = splitToIntByComma(shipList);
+	rowVector = splitToIntByComma(rowHints);
+	colVector = splitToIntByComma(colHints);
+	dataVector = splitToIntByComma(dataString);
 }
 
 /*
@@ -150,4 +122,18 @@ std::string Board::printBoardString()
 
 	boardStr += "\n\n";
 	return boardStr;
+}
+
+std::vector<unsigned int> Board::splitToIntByComma(std::string toSplit)
+{
+	std::vector<unsigned int> returnVector;
+	std::stringstream splitStream(toSplit);
+
+	while (splitStream.good())
+	{
+		std::string subStr;
+		std::getline(splitStream, subStr, ',');
+		returnVector.push_back(std::stoi(subStr));
+	}
+	return returnVector;
 }

@@ -18,6 +18,8 @@ private:
 	unsigned int dimension;
 	unsigned int maxShipSize;
 
+	std::vector<unsigned int> splitToIntByComma(std::string);
+
 public:
 	//Assigns values for later algorithms and holds a copy of the encoded string to pass around
 	Board(std::string);
