@@ -124,9 +124,9 @@ std::string Board::printBoardString()
 	return boardStr;
 }
 
-std::vector<unsigned int> Board::splitToIntByComma(std::string toSplit)
+std::vector<int> Board::splitToIntByComma(std::string toSplit)
 {
-	std::vector<unsigned int> returnVector;
+	std::vector<int> returnVector;
 	std::stringstream splitStream(toSplit);
 
 	while (splitStream.good())
@@ -135,7 +135,7 @@ std::vector<unsigned int> Board::splitToIntByComma(std::string toSplit)
 		std::getline(splitStream, subStr, ',');
 		if (subStr == " ")
 		{
-			returnVector.push_back(2);
+			returnVector.push_back(-1);
 		}
 		else
 			returnVector.push_back(std::stoi(subStr));

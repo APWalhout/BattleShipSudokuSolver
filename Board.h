@@ -9,16 +9,16 @@ class Board
 {
 private:
 	std::string code;
-	std::vector<unsigned int> shipVector;
-	std::vector<unsigned int> rowVector;
-	std::vector<unsigned int> colVector;
-	std::vector<unsigned int> dataVector;
+	std::vector<int> shipVector;
+	std::vector<int> rowVector;
+	std::vector<int> colVector;
+	std::vector<int> dataVector;
 	
 	unsigned int stringLength;
 	unsigned int dimension;
 	unsigned int maxShipSize;
 
-	std::vector<unsigned int> splitToIntByComma(std::string);
+	std::vector<int> splitToIntByComma(std::string);
 
 public:
 	//Assigns values for later algorithms and holds a copy of the encoded string to pass around
