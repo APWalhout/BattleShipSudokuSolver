@@ -133,7 +133,12 @@ std::vector<unsigned int> Board::splitToIntByComma(std::string toSplit)
 	{
 		std::string subStr;
 		std::getline(splitStream, subStr, ',');
-		returnVector.push_back(std::stoi(subStr));
+		if (subStr == " ")
+		{
+			returnVector.push_back(2);
+		}
+		else
+			returnVector.push_back(std::stoi(subStr));
 	}
 	return returnVector;
 }
