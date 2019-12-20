@@ -124,6 +124,15 @@ std::string Board::printBoardString()
 	return boardStr;
 }
 
+//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!TIME TO IMPLEMENT PRINT WITH SEPARATED DATA!!!!!!!!!!!!!!!!!!!!!!
+
+/*
+ * Accepts a string and packages it into an int vector with substrings split on ','
+ * returnVector is the packaged integer conversion of the given string
+ * splitStream is the stream object that has helper methods for the operation
+ * subStr holds the sub-string of the given string split on ','
+ * Helper method for constructor.
+ */
 std::vector<int> Board::splitToIntByComma(std::string toSplit)
 {
 	std::vector<int> returnVector;
