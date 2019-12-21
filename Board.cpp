@@ -125,6 +125,22 @@ std::string Board::printBoardString()
 }
 
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!TIME TO IMPLEMENT PRINT WITH SEPARATED DATA!!!!!!!!!!!!!!!!!!!!!!
+std::string Board::packageBoard()
+{
+	//initialize a 2d array using dimension +1
+	std::vector<std::vector<int>> gameBoard(dimension + 1, std::vector<int>(dimension + 1));
+	//int (*gameBoard)[dimension] = new int[dimension][dimension];//T (*ptr)[M] = new T[N][M];
+	//insert the row and column vectors
+	//row inserts in the last row over n columns
+	//col inserts in the last column over n rows
+	for (int i = 0; i < dimension; ++i)
+	{
+		gameBoard[dimension + 1][i] = rowVector[i];
+		gameBoard[i][dimension + 1] = colVector[i];
+	}
+	//fill the dimension x dimension area with data
+	//this is where i might be able to hash
+}
 
 /*
  * Accepts a string and packages it into an int vector with substrings split on ','
