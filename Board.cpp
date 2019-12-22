@@ -17,6 +17,7 @@ Board::Board(std::string dimensionString, std::string shipList, std::string rowH
 	rowVector = splitToIntByComma(rowHints);
 	colVector = splitToIntByComma(colHints);
 	dataVector = splitToIntByComma(dataString);
+	gameBoard = packageBoard();
 }
 
 /*
@@ -125,7 +126,7 @@ std::string Board::printBoardString()
 }
 
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!TIME TO IMPLEMENT PRINT WITH SEPARATED DATA!!!!!!!!!!!!!!!!!!!!!!
-std::string Board::packageBoard()
+std::vector<std::vector<int>> Board::packageBoard()
 {
 	//initialize a 2d array using dimension +1
 	std::vector<std::vector<int>> gameBoard(dimension + 1, std::vector<int>(dimension + 1));
@@ -145,6 +146,8 @@ std::string Board::packageBoard()
 	{
 		gameBoard[(i/(sqrt(dimension)))][i%dimension] = dataVector[i];
 	}
+
+	return gameBoard;
 }
 
 /*

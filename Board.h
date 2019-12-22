@@ -9,17 +9,20 @@
 class Board
 {
 private:
-	std::string code;
-	std::vector<int> shipVector;
-	std::vector<int> rowVector;
-	std::vector<int> colVector;
-	std::vector<int> dataVector;
 	
 	unsigned int stringLength;
 	unsigned int dimension;
 	unsigned int maxShipSize;
+	std::string code;
+
+	std::vector<int> shipVector;
+	std::vector<int> rowVector;
+	std::vector<int> colVector;
+	std::vector<int> dataVector;
+	std::vector<std::vector<int>> gameBoard;
 
 	std::vector<int> splitToIntByComma(std::string);
+	std::vector<std::vector<int>> packageBoard();
 
 public:
 	//Assigns values for later algorithms and holds a copy of the encoded string to pass around
@@ -28,6 +31,6 @@ public:
 
 	//Prints a constructed puzzle board to console
 	bool printBoard();
+	std::string printBoard(std::vector<std::vector<int>>);
 	std::string printBoardString();
-	std::string packageBoard();
 };
