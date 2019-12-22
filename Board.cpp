@@ -12,12 +12,27 @@ Board::Board(std::string codeStr)
 
 Board::Board(std::string dimensionString, std::string shipList, std::string rowHints, std::string colHints, std::string dataString)
 {
+	//need to detect errors before constructor
 	dimension = std::stoi(dimensionString);
 	shipVector = splitToIntByComma(shipList);
 	rowVector = splitToIntByComma(rowHints);
 	colVector = splitToIntByComma(colHints);
 	dataVector = splitToIntByComma(dataString);
 	gameBoard = packageBoard();
+}
+
+std::string Board::printBoard(std::vector<std::vector<int>> boardVector)
+{
+	std::string boardString = "";
+	//here might be able to print in a hash as well?
+	//a for loop that's the reverse of the data package, and at the marker points it pre/post pushes the column numbers to the string
+	for (int i = 0; i < dataVector.size(); ++i)
+	{
+		//gonna have to test this, do strings += ints work as expected????????????????????????????????????????????????????
+		boardString += boardVector[(i / (sqrt(dimension)))][i%dimension];
+	}
+	//then just ends with a new line push for the row numbers
+	return " ";
 }
 
 /*
@@ -128,26 +143,29 @@ std::string Board::printBoardString()
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!TIME TO IMPLEMENT PRINT WITH SEPARATED DATA!!!!!!!!!!!!!!!!!!!!!!
 std::vector<std::vector<int>> Board::packageBoard()
 {
+	//!!!!!!!!!!!! NEED ERROR DETECTION IN CASE DIMENSION IS NOT A NUMBER !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	//MAYBE DETECT IN CONSTRUCTOR, NO, DO DETECT IN CONSTRUCTOR CAUSE IT CAN SCREW UP THE STOI METHODS
+
 	//initialize a 2d array using dimension +1
-	std::vector<std::vector<int>> gameBoard(dimension + 1, std::vector<int>(dimension + 1));
+	std::vector<std::vector<int>> boardVector(dimension + 1, std::vector<int>(dimension + 1));
 	//int (*gameBoard)[dimension] = new int[dimension][dimension];//T (*ptr)[M] = new T[N][M];
 	//insert the row and column vectors
 	//row inserts in the last row over n columns
 	//col inserts in the last column over n rows
 	for (int i = 0; i < dimension; ++i)
 	{
-		gameBoard[dimension + 1][i] = rowVector[i];
-		gameBoard[i][dimension + 1] = colVector[i];
+		boardVector[dimension + 1][i] = rowVector[i];
+		boardVector[i][dimension + 1] = colVector[i];
 	}
 	//fill the dimension x dimension area with data
 	//this is where i might be able to hash
 	//i know it's going to be squaer so i can use modular for the colun
 	for (int i = 0; i < dataVector.size(); ++i)
 	{
-		gameBoard[(i/(sqrt(dimension)))][i%dimension] = dataVector[i];
+		boardVector[(i/(sqrt(dimension)))][i%dimension] = dataVector[i];
 	}
 
-	return gameBoard;
+	return boardVector;
 }
 
 /*
