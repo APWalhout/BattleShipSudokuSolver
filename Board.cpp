@@ -29,7 +29,13 @@ std::string Board::printBoard(std::vector<std::vector<int>> boardVector)
 	for (int i = 0; i < dataVector.size(); ++i)
 	{
 		//gonna have to test this, do strings += ints work as expected????????????????????????????????????????????????????
-		boardString += boardVector[(i / (sqrt(dimension)))][i%dimension];
+		boardString += "[";
+		boardString += boardVector[(i / dimension)][i % dimension];
+		boardString += "] ";
+		if (!(i % dimension))
+		{
+
+		}
 	}
 	//then just ends with a new line push for the row numbers
 	return " ";
@@ -162,7 +168,8 @@ std::vector<std::vector<int>> Board::packageBoard()
 	//i know it's going to be squaer so i can use modular for the colun
 	for (int i = 0; i < dataVector.size(); ++i)
 	{
-		boardVector[(i/(sqrt(dimension)))][i%dimension] = dataVector[i];
+		//wait, dimension is going to be the square root of the data length, what do i need sqrt for?
+		boardVector[(i / dimension)][i % dimension] = dataVector[i];
 	}
 
 	return boardVector;
