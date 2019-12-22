@@ -140,6 +140,7 @@ std::string Board::packageBoard()
 	}
 	//fill the dimension x dimension area with data
 	//this is where i might be able to hash
+	//i know it's going to be squaer so i can use modular for the colun
 }
 
 /*
