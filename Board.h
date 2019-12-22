@@ -3,6 +3,7 @@
 #include <vector>//std::vector
 #include <string>//std::stoi std::string
 #include <sstream>//std::stringstream
+#include <cmath>//sqrt
 
 //This class stores and manipulates data from an encoded string to construct and display a game board
 class Board
