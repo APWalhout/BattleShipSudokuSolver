@@ -169,23 +169,28 @@ std::vector<std::vector<int>> Board::packageBoard()
 
 	//initialize a 2d array using dimension +1
 	std::vector<std::vector<int>> boardVector(dimension + 1, std::vector<int>(dimension + 1));
+	std::cout << "\nbuilt 2d boardVector\n";
 	//int (*gameBoard)[dimension] = new int[dimension][dimension];//T (*ptr)[M] = new T[N][M];
 	//insert the row and column vectors
 	//row inserts in the last row over n columns
 	//col inserts in the last column over n rows
+	std::cout << "\nabout to start adding row and col\n";
 	for (int i = 0; i < dimension; ++i)
 	{
 		boardVector[dimension + 1][i] = rowVector[i];
 		boardVector[i][dimension + 1] = colVector[i];
 	}
+	std::cout << "\nfinished adding row and col\n";
 	//fill the dimension x dimension area with data
 	//this is where i might be able to hash
 	//i know it's going to be squaer so i can use modular for the colun
+	std::cout << "\nabout to start populating data\n";
 	for (int i = 0; i < dataVector.size(); ++i)
 	{
 		//wait, dimension is going to be the square root of the data length, what do i need sqrt for?
 		boardVector[(i / dimension)][i % dimension] = dataVector[i];
 	}
+	std::cout << "\nfinished populating data\n";
 
 	return boardVector;
 }
