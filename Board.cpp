@@ -32,13 +32,21 @@ std::string Board::printBoard(std::vector<std::vector<int>> boardVector)
 		boardString += "[";
 		boardString += boardVector[(i / dimension)][i % dimension];
 		boardString += "] ";
-		if (!(i % dimension))
-		{
 
+		if ((i % dimension) == (dimension - 1))
+		{
+			boardString += boardVector[(i / dimension)][dimension];
+			boardString += "\n";
 		}
 	}
 	//then just ends with a new line push for the row numbers
-	return " ";
+	for (int i = 0; i < dimension; ++i)
+	{
+		boardString += " ";
+		boardString += boardVector[dimension][i];
+		boardString += " ";
+	}
+	return boardString;
 }
 
 /*
