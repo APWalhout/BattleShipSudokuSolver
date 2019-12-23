@@ -13,12 +13,19 @@ Board::Board(std::string codeStr)
 Board::Board(std::string dimensionString, std::string shipList, std::string rowHints, std::string colHints, std::string dataString)
 {
 	//need to detect errors before constructor
+	std::cout << "\nstarted wholistic constructor\n";
 	dimension = std::stoi(dimensionString);
+	std::cout << "\nfinished dimension construct\n";
 	shipVector = splitToIntByComma(shipList);
+	std::cout << "\nfinished shipVector construct\n";
 	rowVector = splitToIntByComma(rowHints);
+	std::cout << "\nfinished rowVector construct\n";
 	colVector = splitToIntByComma(colHints);
+	std::cout << "\nfinished colVector construct\n";
 	dataVector = splitToIntByComma(dataString);
+	std::cout << "\nfinished dataVector construct\n";
 	gameBoard = packageBoard();
+	std::cout << "\nfinished gameBoard package\n";
 }
 
 std::string Board::printBoard(std::vector<std::vector<int>> boardVector)

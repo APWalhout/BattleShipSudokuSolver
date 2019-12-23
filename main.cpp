@@ -45,7 +45,7 @@ int main()
 	const std::string dataTest = testsXML.first_element_by_path("tests/samples/boardA/boardData").child_value();
 
 	std::cout << "test of the wholistic method: \n";
-	//Board wholeTest(dimensionTest, shipSizeTest, rowTest, colTest, dataTest);
+	Board wholeTest(dimensionTest, shipSizeTest, rowTest, colTest, dataTest);
 
 	//test clusters
 	std::cout << "\n testAStr: " << testAStr << std::endl;
