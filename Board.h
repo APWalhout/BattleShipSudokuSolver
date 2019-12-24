@@ -9,10 +9,7 @@ class Board
 {
 private:
 	
-	unsigned int stringLength;
 	unsigned int dimension;
-	unsigned int maxShipSize;
-	std::string code;
 
 	std::vector<int> shipVector;
 	std::vector<int> rowVector;
@@ -25,12 +22,9 @@ private:
 
 public:
 	//Assigns values for later algorithms and holds a copy of the encoded string to pass around
-	Board(std::string);
 	Board(std::string, std::string, std::string, std::string, std::string);
 
 	//Prints a constructed puzzle board to console
-	bool printBoard();
 	std::string printBoard(std::vector<std::vector<int>>);
-	std::string printBoardString();
 	std::vector<std::vector<int>> getBoard();
 };
