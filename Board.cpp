@@ -26,35 +26,56 @@ Board::Board(std::string dimensionString, std::string shipList, std::string rowH
 	std::cout << "\nfinished dataVector construct\n";
 	gameBoard = packageBoard();
 	std::cout << "\nfinished gameBoard package\n";
+	std::cout << "\ntesting middle character\n";
+	std::cout << gameBoard[2][1];
 	std::cout << "\nstarting print\n";
 	std::cout << printBoard(gameBoard);
 	std::cout << "\nfinished print\n";
+	std::cout << "\nassembling int string test\n";
+	std::string testSTR = "";
+	testSTR += "test 5: ";
+	testSTR += 5;
+	std::cout << testSTR;
+	std::cout << "\nabove is test for 5\n";
 }
 
 std::string Board::printBoard(std::vector<std::vector<int>> boardVector)
 {
 	std::string boardString = "";
+	std::stringstream intToString;
 	//here might be able to print in a hash as well?
 	//a for loop that's the reverse of the data package, and at the marker points it pre/post pushes the column numbers to the string
 	for (int i = 0; i < dataVector.size(); ++i)
 	{
+		if (boardVector[(i / dimension)][i % dimension] == -1)
+		{
+			intToString << " ";
+		}
+		else
+			intToString << boardVector[(i / dimension)][i % dimension];
 		//gonna have to test this, do strings += ints work as expected????????????????????????????????????????????????????
 		boardString += "[";
-		boardString += boardVector[(i / dimension)][i % dimension];
+		boardString += intToString.str();
 		boardString += "] ";
+
+		intToString.str(std::string());
 
 		if ((i % dimension) == (dimension - 1))
 		{
-			boardString += boardVector[(i / dimension)][dimension];
+			intToString << boardVector[(i / dimension)][dimension];
+			boardString += intToString.str();
 			boardString += "\n";
+			intToString.str(std::string());
 		}
 	}
 	//then just ends with a new line push for the row numbers
 	for (int i = 0; i < dimension; ++i)
 	{
+		intToString << boardVector[dimension][i];
 		boardString += " ";
-		boardString += boardVector[dimension][i];
-		boardString += " ";
+		boardString += intToString.str();
+		boardString += "  ";
+		intToString.str(std::string());
 	}
 	return boardString;
 }
@@ -180,7 +201,6 @@ std::vector<std::vector<int>> Board::packageBoard()
 	std::cout << "\nabout to start adding row and col\n";
 	for (int i = 0; i < dimension; ++i)
 	{
-		std::cout << "started for\n";
 		boardVector[dimension][i] = rowVector[i];
 		boardVector[i][dimension] = colVector[i];
 	}

@@ -1,6 +1,6 @@
 ﻿  Board.cpp
-C:\Users\clefs\Documents\Visual Studio Projects\BattleShipSudokuSolver\BattleShipSudokuSolver\Board.cpp(39,20): warning C4018:  '<': signed/unsigned mismatch
-C:\Users\clefs\Documents\Visual Studio Projects\BattleShipSudokuSolver\BattleShipSudokuSolver\Board.cpp(53,20): warning C4018:  '<': signed/unsigned mismatch
-C:\Users\clefs\Documents\Visual Studio Projects\BattleShipSudokuSolver\BattleShipSudokuSolver\Board.cpp(181,20): warning C4018:  '<': signed/unsigned mismatch
-C:\Users\clefs\Documents\Visual Studio Projects\BattleShipSudokuSolver\BattleShipSudokuSolver\Board.cpp(192,20): warning C4018:  '<': signed/unsigned mismatch
+C:\Users\clefs\Documents\Visual Studio Projects\BattleShipSudokuSolver\BattleShipSudokuSolver\Board.cpp(48,20): warning C4018:  '<': signed/unsigned mismatch
+C:\Users\clefs\Documents\Visual Studio Projects\BattleShipSudokuSolver\BattleShipSudokuSolver\Board.cpp(72,20): warning C4018:  '<': signed/unsigned mismatch
+C:\Users\clefs\Documents\Visual Studio Projects\BattleShipSudokuSolver\BattleShipSudokuSolver\Board.cpp(202,20): warning C4018:  '<': signed/unsigned mismatch
+C:\Users\clefs\Documents\Visual Studio Projects\BattleShipSudokuSolver\BattleShipSudokuSolver\Board.cpp(212,20): warning C4018:  '<': signed/unsigned mismatch
   BattleShipSudokuSolver.vcxproj -> C:\Users\clefs\Documents\Visual Studio Projects\BattleShipSudokuSolver\Debug\BattleShipSudokuSolver.exe
