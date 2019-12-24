@@ -26,6 +26,9 @@ Board::Board(std::string dimensionString, std::string shipList, std::string rowH
 	std::cout << "\nfinished dataVector construct\n";
 	gameBoard = packageBoard();
 	std::cout << "\nfinished gameBoard package\n";
+	std::cout << "\nstarting print\n";
+	std::cout << printBoard(gameBoard);
+	std::cout << "\nfinished print\n";
 }
 
 std::string Board::printBoard(std::vector<std::vector<int>> boardVector)
@@ -177,8 +180,9 @@ std::vector<std::vector<int>> Board::packageBoard()
 	std::cout << "\nabout to start adding row and col\n";
 	for (int i = 0; i < dimension; ++i)
 	{
-		boardVector[dimension + 1][i] = rowVector[i];
-		boardVector[i][dimension + 1] = colVector[i];
+		std::cout << "started for\n";
+		boardVector[dimension][i] = rowVector[i];
+		boardVector[i][dimension] = colVector[i];
 	}
 	std::cout << "\nfinished adding row and col\n";
 	//fill the dimension x dimension area with data
