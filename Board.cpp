@@ -65,7 +65,7 @@ std::string Board::printBoard(std::vector<std::vector<int>> boardVector)
  */
 std::vector<std::vector<int>> Board::packageBoard()
 {
-	std::vector<std::vector<int>> boardVector(dimension + 1, std::vector<int>(dimension + 1, 0));// the ,0 was added to populate the 2d array with 0 and possibly fix the reference error as referencing an empy array might have caused the issue
+	std::vector<std::vector<int>> boardVector(dimension + 1, std::vector<int>(dimension + 1, 0));
 
 	//Insert the row and column vectors
 	for (int edgeIndex = 0; edgeIndex < dimension; ++edgeIndex)
