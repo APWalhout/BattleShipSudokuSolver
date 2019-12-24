@@ -13,30 +13,12 @@ Board::Board(std::string codeStr)
 Board::Board(std::string dimensionString, std::string shipList, std::string rowHints, std::string colHints, std::string dataString)
 {
 	//need to detect errors before constructor
-	std::cout << "\nstarted wholistic constructor\n";
 	dimension = std::stoi(dimensionString);
-	std::cout << "\nfinished dimension construct\n";
 	shipVector = splitToIntByComma(shipList);
-	std::cout << "\nfinished shipVector construct\n";
 	rowVector = splitToIntByComma(rowHints);
-	std::cout << "\nfinished rowVector construct\n";
 	colVector = splitToIntByComma(colHints);
-	std::cout << "\nfinished colVector construct\n";
 	dataVector = splitToIntByComma(dataString);
-	std::cout << "\nfinished dataVector construct\n";
 	gameBoard = packageBoard();
-	std::cout << "\nfinished gameBoard package\n";
-	std::cout << "\ntesting middle character\n";
-	std::cout << gameBoard[2][1];
-	std::cout << "\nstarting print\n";
-	std::cout << printBoard(gameBoard);
-	std::cout << "\nfinished print\n";
-	std::cout << "\nassembling int string test\n";
-	std::string testSTR = "";
-	testSTR += "test 5: ";
-	testSTR += 5;
-	std::cout << testSTR;
-	std::cout << "\nabove is test for 5\n";
 }
 
 std::string Board::printBoard(std::vector<std::vector<int>> boardVector)
@@ -193,28 +175,25 @@ std::vector<std::vector<int>> Board::packageBoard()
 
 	//initialize a 2d array using dimension +1
 	std::vector<std::vector<int>> boardVector(dimension + 1, std::vector<int>(dimension + 1, 0));// the ,0 was added to populate the 2d array with 0 and possibly fix the reference error as referencing an empy array might have caused the issue
-	std::cout << "\nbuilt 2d boardVector\n";
+
 	//int (*gameBoard)[dimension] = new int[dimension][dimension];//T (*ptr)[M] = new T[N][M];
 	//insert the row and column vectors
 	//row inserts in the last row over n columns
 	//col inserts in the last column over n rows
-	std::cout << "\nabout to start adding row and col\n";
 	for (int i = 0; i < dimension; ++i)
 	{
 		boardVector[dimension][i] = rowVector[i];
 		boardVector[i][dimension] = colVector[i];
 	}
-	std::cout << "\nfinished adding row and col\n";
+	
 	//fill the dimension x dimension area with data
 	//this is where i might be able to hash
 	//i know it's going to be squaer so i can use modular for the colun
-	std::cout << "\nabout to start populating data\n";
 	for (int i = 0; i < dataVector.size(); ++i)
 	{
 		//wait, dimension is going to be the square root of the data length, what do i need sqrt for?
 		boardVector[(i / dimension)][i % dimension] = dataVector[i];
 	}
-	std::cout << "\nfinished populating data\n";
 
 	return boardVector;
 }
@@ -243,4 +222,9 @@ std::vector<int> Board::splitToIntByComma(std::string toSplit)
 			returnVector.push_back(std::stoi(subStr));
 	}
 	return returnVector;
+}
+
+std::vector<std::vector<int>> Board::getBoard()
+{
+	return gameBoard;
 }

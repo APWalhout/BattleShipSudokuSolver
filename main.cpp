@@ -23,19 +23,21 @@ int main()
 		std::cout << "File is not empty\n";
 
 	//grab the test's encoded strings
-	const std::string testAStr = testsXML.first_element_by_path("tests/trivial/a").child_value();
+	/*const std::string testAStr = testsXML.first_element_by_path("tests/trivial/a").child_value();
 	const std::string testBStr = testsXML.first_element_by_path("tests/trivial/b").child_value();
 	const std::string testCStr = testsXML.first_element_by_path("tests/trivial/c").child_value();
 	const std::string testDStr = testsXML.first_element_by_path("tests/trivial/d").child_value();
 	const std::string testEStr = testsXML.first_element_by_path("tests/trivial/e").child_value();
 	const std::string testFStr = testsXML.first_element_by_path("tests/trivial/f").child_value();
+	*/
 
 	//grab the fail's encoded strings
-	const std::string failGStr = testsXML.first_element_by_path("tests/fails/g").child_value();
+	/*const std::string failGStr = testsXML.first_element_by_path("tests/fails/g").child_value();
 	const std::string failHStr = testsXML.first_element_by_path("tests/fails/h").child_value();
 	const std::string failIStr = testsXML.first_element_by_path("tests/fails/i").child_value();
 	const std::string failJStr = testsXML.first_element_by_path("tests/fails/j").child_value();
 	const std::string failKStr = testsXML.first_element_by_path("tests/fails/k").child_value();
+	*/
 
 	//test board A
 	const std::string dimensionTest = testsXML.first_element_by_path("tests/samples/boardA/dimension").child_value();
@@ -46,9 +48,10 @@ int main()
 
 	std::cout << "test of the wholistic method: \n";
 	Board wholeTest(dimensionTest, shipSizeTest, rowTest, colTest, dataTest);
+	std::cout << wholeTest.printBoard(wholeTest.getBoard());
 
 	//test clusters
-	std::cout << "\n testAStr: " << testAStr << std::endl;
+	/*std::cout << "\n testAStr: " << testAStr << std::endl;
 	Board testA(testAStr);
 	testA.printBoard();
 
@@ -95,7 +98,7 @@ int main()
 
 	std::cout << "\n failKStr: " << failKStr << std::endl;
 	Board failK(failKStr);
-	failK.printBoard();
+	failK.printBoard();*/
 
 	return 1;
 }

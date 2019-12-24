@@ -32,4 +32,5 @@ public:
 	bool printBoard();
 	std::string printBoard(std::vector<std::vector<int>>);
 	std::string printBoardString();
+	std::vector<std::vector<int>> getBoard();
 };
