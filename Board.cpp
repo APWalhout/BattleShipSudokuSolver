@@ -168,7 +168,7 @@ std::vector<std::vector<int>> Board::packageBoard()
 	//MAYBE DETECT IN CONSTRUCTOR, NO, DO DETECT IN CONSTRUCTOR CAUSE IT CAN SCREW UP THE STOI METHODS
 
 	//initialize a 2d array using dimension +1
-	std::vector<std::vector<int>> boardVector(dimension + 1, std::vector<int>(dimension + 1));
+	std::vector<std::vector<int>> boardVector(dimension + 1, std::vector<int>(dimension + 1, 0));// the ,0 was added to populate the 2d array with 0 and possibly fix the reference error as referencing an empy array might have caused the issue
 	std::cout << "\nbuilt 2d boardVector\n";
 	//int (*gameBoard)[dimension] = new int[dimension][dimension];//T (*ptr)[M] = new T[N][M];
 	//insert the row and column vectors
