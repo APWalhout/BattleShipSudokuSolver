@@ -1,7 +1,5 @@
 #include "Board.h"
-/*
- * Assigns object's attribute values with helper methods and concludes by "building" the board from given parameters
- */
+
 Board::Board(std::string dimensionString, std::string shipList, std::string rowHints, std::string colHints, std::string dataString)
 {
 	dimension = std::stoi(dimensionString);
@@ -38,7 +36,7 @@ std::string Board::printBoard(std::vector<std::vector<int>> boardVector)
 		boardString += "] ";
 
 		intToString.str(std::string());
-
+		//Identifies when to print the column number
 		if ((dataIndex % dimension) == (dimension - 1))
 		{
 			intToString << boardVector[(dataIndex / dimension)][dimension];
@@ -47,7 +45,7 @@ std::string Board::printBoard(std::vector<std::vector<int>> boardVector)
 			intToString.str(std::string());
 		}
 	}
-	//then just ends with a new line push for the row numbers
+	
 	for (int rowIndex = 0; rowIndex < dimension; ++rowIndex)
 	{
 		intToString << boardVector[dimension][rowIndex];

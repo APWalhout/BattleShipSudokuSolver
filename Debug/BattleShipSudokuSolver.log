@@ -1,6 +1,6 @@
-﻿  main.cpp
-C:\Users\clefs\Documents\Visual Studio Projects\BattleShipSudokuSolver\BattleShipSudokuSolver\main.cpp(38,38): warning C4101:  'e': unreferenced local variable
-C:\Users\clefs\Documents\Visual Studio Projects\BattleShipSudokuSolver\BattleShipSudokuSolver\main.cpp(53,38): warning C4101:  'e': unreferenced local variable
-C:\Users\clefs\Documents\Visual Studio Projects\BattleShipSudokuSolver\BattleShipSudokuSolver\main.cpp(68,38): warning C4101:  'e': unreferenced local variable
-C:\Users\clefs\Documents\Visual Studio Projects\BattleShipSudokuSolver\BattleShipSudokuSolver\main.cpp(83,38): warning C4101:  'e': unreferenced local variable
+﻿  Board.cpp
+C:\Users\clefs\Documents\Visual Studio Projects\BattleShipSudokuSolver\BattleShipSudokuSolver\Board.cpp(25,36): warning C4018:  '<': signed/unsigned mismatch
+C:\Users\clefs\Documents\Visual Studio Projects\BattleShipSudokuSolver\BattleShipSudokuSolver\Board.cpp(49,34): warning C4018:  '<': signed/unsigned mismatch
+C:\Users\clefs\Documents\Visual Studio Projects\BattleShipSudokuSolver\BattleShipSudokuSolver\Board.cpp(71,36): warning C4018:  '<': signed/unsigned mismatch
+C:\Users\clefs\Documents\Visual Studio Projects\BattleShipSudokuSolver\BattleShipSudokuSolver\Board.cpp(78,36): warning C4018:  '<': signed/unsigned mismatch
   BattleShipSudokuSolver.vcxproj -> C:\Users\clefs\Documents\Visual Studio Projects\BattleShipSudokuSolver\Debug\BattleShipSudokuSolver.exe
