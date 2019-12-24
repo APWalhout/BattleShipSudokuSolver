@@ -65,6 +65,21 @@ int main()
 		std::cout << testC.printBoard(testC.getBoard());
 		std::cout << std::endl << std::endl;
 	}
+	catch (const std::invalid_argument& e) { std::cout << "\nInvalid argument to constructor.\n\n"; }
+
+	//fail test board D
+	const std::string dimensionTestD = testsXML.first_element_by_path("tests/samples/boardD/dimension").child_value();
+	const std::string shipSizeTestD = testsXML.first_element_by_path("tests/samples/boardD/shipList").child_value();
+	const std::string rowTestD = testsXML.first_element_by_path("tests/samples/boardD/rowNumbers").child_value();
+	const std::string colTestD = testsXML.first_element_by_path("tests/samples/boardD/colNumbers").child_value();
+	const std::string dataTestD = testsXML.first_element_by_path("tests/samples/boardD/boardData").child_value();
+
+	try
+	{
+		Board testD(dimensionTestD, shipSizeTestD, rowTestD, colTestD, dataTestD);
+		std::cout << testD.printBoard(testD.getBoard());
+		std::cout << std::endl << std::endl;
+	}
 	catch (const std::invalid_argument& e) { std::cout << "\nInvalid argument to constructor.\n"; }
 	
 	return 1;
