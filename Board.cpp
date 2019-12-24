@@ -15,16 +15,15 @@ std::string Board::printBoard(std::vector<std::vector<int>> boardVector)
 {
 	std::string boardString = "";
 	std::stringstream intToString;
-	//here might be able to print in a hash as well?
-	//a for loop that's the reverse of the data package, and at the marker points it pre/post pushes the column numbers to the string
-	for (int i = 0; i < dataVector.size(); ++i)
+	
+	for (int dataIndex = 0; dataIndex < dataVector.size(); ++dataIndex)
 	{
-		if (boardVector[(i / dimension)][i % dimension] == -1)
+		if (boardVector[(dataIndex / dimension)][dataIndex % dimension] == -1)
 		{
 			intToString << " ";
 		}
 		else
-			intToString << boardVector[(i / dimension)][i % dimension];
+			intToString << boardVector[(dataIndex / dimension)][dataIndex % dimension];
 		//gonna have to test this, do strings += ints work as expected????????????????????????????????????????????????????
 		boardString += "[";
 		boardString += intToString.str();
@@ -32,18 +31,18 @@ std::string Board::printBoard(std::vector<std::vector<int>> boardVector)
 
 		intToString.str(std::string());
 
-		if ((i % dimension) == (dimension - 1))
+		if ((dataIndex % dimension) == (dimension - 1))
 		{
-			intToString << boardVector[(i / dimension)][dimension];
+			intToString << boardVector[(dataIndex / dimension)][dimension];
 			boardString += intToString.str();
 			boardString += "\n";
 			intToString.str(std::string());
 		}
 	}
 	//then just ends with a new line push for the row numbers
-	for (int i = 0; i < dimension; ++i)
+	for (int rowIndex = 0; rowIndex < dimension; ++rowIndex)
 	{
-		intToString << boardVector[dimension][i];
+		intToString << boardVector[dimension][rowIndex];
 		boardString += " ";
 		boardString += intToString.str();
 		boardString += "  ";
@@ -65,19 +64,19 @@ std::vector<std::vector<int>> Board::packageBoard()
 	//insert the row and column vectors
 	//row inserts in the last row over n columns
 	//col inserts in the last column over n rows
-	for (int i = 0; i < dimension; ++i)
+	for (int edgeIndex = 0; edgeIndex < dimension; ++edgeIndex)
 	{
-		boardVector[dimension][i] = rowVector[i];
-		boardVector[i][dimension] = colVector[i];
+		boardVector[dimension][edgeIndex] = rowVector[edgeIndex];
+		boardVector[edgeIndex][dimension] = colVector[edgeIndex];
 	}
 	
 	//fill the dimension x dimension area with data
 	//this is where i might be able to hash
 	//i know it's going to be squaer so i can use modular for the colun
-	for (int i = 0; i < dataVector.size(); ++i)
+	for (int dataIndex = 0; dataIndex < dataVector.size(); ++dataIndex)
 	{
 		//wait, dimension is going to be the square root of the data length, what do i need sqrt for?
-		boardVector[(i / dimension)][i % dimension] = dataVector[i];
+		boardVector[(dataIndex / dimension)][dataIndex % dimension] = dataVector[dataIndex];
 	}
 
 	return boardVector;
