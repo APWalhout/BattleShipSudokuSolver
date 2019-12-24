@@ -25,5 +25,19 @@
       <colNumbers description="list of column hints">0,1,0</colNumbers>
       <boardData description="data to populate the board with">0,0,0,0, ,0,0,0,0</boardData>
     </boardA>
+    <boardB description="sample board B">
+      <dimension description="dimension value">4</dimension>
+      <shipList description="list of ship quantities by size S-L">1</shipList>
+      <rowNumbers description="list of row hints">0,1,0,0</rowNumbers>
+      <colNumbers description="list of column hints">0,1,0,0</colNumbers>
+      <boardData description="data to populate the board with">0,0,0,0,0, ,0,0,0,0,0,0,0,0,0,0</boardData>
+    </boardB>
+    <boardC description="sample board C">
+      <dimension description="dimension value">a</dimension>
+      <shipList description="list of ship quantities by size S-L">b</shipList>
+      <rowNumbers description="list of row hints">d,e,f</rowNumbers>
+      <colNumbers description="list of column hints">g,h,i</colNumbers>
+      <boardData description="data to populate the board with">j,k,l,m,n,o,p,q,r</boardData>
+    </boardC>
   </samples>
 </tests>

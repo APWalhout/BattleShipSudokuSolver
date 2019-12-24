@@ -8,7 +8,7 @@
 class Board
 {
 private:
-	
+	//variables
 	unsigned int dimension;
 
 	std::vector<int> shipVector;
@@ -16,15 +16,14 @@ private:
 	std::vector<int> colVector;
 	std::vector<int> dataVector;
 	std::vector<std::vector<int>> gameBoard;
-
+	
+	//helper methods
 	std::vector<int> splitToIntByComma(std::string);
 	std::vector<std::vector<int>> packageBoard();
 
 public:
-	//Assigns values for later algorithms and holds a copy of the encoded string to pass around
 	Board(std::string, std::string, std::string, std::string, std::string);
 
-	//Prints a constructed puzzle board to console
 	std::string printBoard(std::vector<std::vector<int>>);
 	std::vector<std::vector<int>> getBoard();
 };

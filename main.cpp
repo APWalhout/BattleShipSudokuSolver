@@ -23,15 +23,49 @@ int main()
 		std::cout << "File is not empty\n";
 
 	//test board A
-	const std::string dimensionTest = testsXML.first_element_by_path("tests/samples/boardA/dimension").child_value();
-	const std::string shipSizeTest = testsXML.first_element_by_path("tests/samples/boardA/shipList").child_value();
-	const std::string rowTest = testsXML.first_element_by_path("tests/samples/boardA/rowNumbers").child_value();
-	const std::string colTest = testsXML.first_element_by_path("tests/samples/boardA/colNumbers").child_value();
-	const std::string dataTest = testsXML.first_element_by_path("tests/samples/boardA/boardData").child_value();
+	const std::string dimensionTestA = testsXML.first_element_by_path("tests/samples/boardA/dimension").child_value();
+	const std::string shipSizeTestA = testsXML.first_element_by_path("tests/samples/boardA/shipList").child_value();
+	const std::string rowTestA = testsXML.first_element_by_path("tests/samples/boardA/rowNumbers").child_value();
+	const std::string colTestA = testsXML.first_element_by_path("tests/samples/boardA/colNumbers").child_value();
+	const std::string dataTestA = testsXML.first_element_by_path("tests/samples/boardA/boardData").child_value();
 
-	std::cout << "test of the wholistic method: \n";
-	Board wholeTest(dimensionTest, shipSizeTest, rowTest, colTest, dataTest);
-	std::cout << wholeTest.printBoard(wholeTest.getBoard());
+	try
+	{
+		Board testA(dimensionTestA, shipSizeTestA, rowTestA, colTestA, dataTestA);
+		std::cout << testA.printBoard(testA.getBoard());
+		std::cout << std::endl << std::endl;
+	}
+	catch (const std::invalid_argument& e) { std::cout << "\nInvalid argument to constructor.\n"; }
 
+	//test board B
+	const std::string dimensionTestB = testsXML.first_element_by_path("tests/samples/boardB/dimension").child_value();
+	const std::string shipSizeTestB = testsXML.first_element_by_path("tests/samples/boardB/shipList").child_value();
+	const std::string rowTestB = testsXML.first_element_by_path("tests/samples/boardB/rowNumbers").child_value();
+	const std::string colTestB = testsXML.first_element_by_path("tests/samples/boardB/colNumbers").child_value();
+	const std::string dataTestB = testsXML.first_element_by_path("tests/samples/boardB/boardData").child_value();
+
+	try
+	{
+		Board testB(dimensionTestB, shipSizeTestB, rowTestB, colTestB, dataTestB);
+		std::cout << testB.printBoard(testB.getBoard());
+		std::cout << std::endl << std::endl;
+	}
+	catch (const std::invalid_argument& e) { std::cout << "\nInvalid argument to constructor.\n"; }
+
+	//fail test board C
+	const std::string dimensionTestC = testsXML.first_element_by_path("tests/samples/boardC/dimension").child_value();
+	const std::string shipSizeTestC = testsXML.first_element_by_path("tests/samples/boardC/shipList").child_value();
+	const std::string rowTestC = testsXML.first_element_by_path("tests/samples/boardC/rowNumbers").child_value();
+	const std::string colTestC = testsXML.first_element_by_path("tests/samples/boardC/colNumbers").child_value();
+	const std::string dataTestC = testsXML.first_element_by_path("tests/samples/boardC/boardData").child_value();
+
+	try 
+	{
+		Board testC(dimensionTestC, shipSizeTestC, rowTestC, colTestC, dataTestC);
+		std::cout << testC.printBoard(testC.getBoard());
+		std::cout << std::endl << std::endl;
+	}
+	catch (const std::invalid_argument& e) { std::cout << "\nInvalid argument to constructor.\n"; }
+	
 	return 1;
 }

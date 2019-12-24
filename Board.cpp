@@ -1,16 +1,24 @@
 #include "Board.h"
-
+/*
+ * Assigns object's attribute values with helper methods and concludes by "building" the board from given parameters
+ */
 Board::Board(std::string dimensionString, std::string shipList, std::string rowHints, std::string colHints, std::string dataString)
 {
-	//need to detect errors before constructor
 	dimension = std::stoi(dimensionString);
 	shipVector = splitToIntByComma(shipList);
 	rowVector = splitToIntByComma(rowHints);
 	colVector = splitToIntByComma(colHints);
 	dataVector = splitToIntByComma(dataString);
+
 	gameBoard = packageBoard();
 }
 
+/*
+ * Returns a formatted string version of the game board for visualization and testing
+ * boardString is built up and returned
+ * intToString is used to convert integer values to appropriate string characters
+ * Helper method for constructor that accesses the 2d board in linear time
+ */
 std::string Board::printBoard(std::vector<std::vector<int>> boardVector)
 {
 	std::string boardString = "";
@@ -24,7 +32,7 @@ std::string Board::printBoard(std::vector<std::vector<int>> boardVector)
 		}
 		else
 			intToString << boardVector[(dataIndex / dimension)][dataIndex % dimension];
-		//gonna have to test this, do strings += ints work as expected????????????????????????????????????????????????????
+		
 		boardString += "[";
 		boardString += intToString.str();
 		boardString += "] ";
@@ -48,34 +56,29 @@ std::string Board::printBoard(std::vector<std::vector<int>> boardVector)
 		boardString += "  ";
 		intToString.str(std::string());
 	}
+
 	return boardString;
 }
 
-//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!TIME TO IMPLEMENT PRINT WITH SEPARATED DATA!!!!!!!!!!!!!!!!!!!!!!
+/*
+ * Constructs the actual game board object using parameters passed to the constructor.
+ * boardVector is the game board returned to the constructor.
+ * Helper method for constructor that populates the 2d vector in linear time.
+ */
 std::vector<std::vector<int>> Board::packageBoard()
 {
-	//!!!!!!!!!!!! NEED ERROR DETECTION IN CASE DIMENSION IS NOT A NUMBER !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-	//MAYBE DETECT IN CONSTRUCTOR, NO, DO DETECT IN CONSTRUCTOR CAUSE IT CAN SCREW UP THE STOI METHODS
-
-	//initialize a 2d array using dimension +1
 	std::vector<std::vector<int>> boardVector(dimension + 1, std::vector<int>(dimension + 1, 0));// the ,0 was added to populate the 2d array with 0 and possibly fix the reference error as referencing an empy array might have caused the issue
 
-	//int (*gameBoard)[dimension] = new int[dimension][dimension];//T (*ptr)[M] = new T[N][M];
-	//insert the row and column vectors
-	//row inserts in the last row over n columns
-	//col inserts in the last column over n rows
+	//Insert the row and column vectors
 	for (int edgeIndex = 0; edgeIndex < dimension; ++edgeIndex)
 	{
 		boardVector[dimension][edgeIndex] = rowVector[edgeIndex];
 		boardVector[edgeIndex][dimension] = colVector[edgeIndex];
 	}
 	
-	//fill the dimension x dimension area with data
-	//this is where i might be able to hash
-	//i know it's going to be squaer so i can use modular for the colun
+	//Since the board's data is always a square area, allows linear wrapping solution
 	for (int dataIndex = 0; dataIndex < dataVector.size(); ++dataIndex)
 	{
-		//wait, dimension is going to be the square root of the data length, what do i need sqrt for?
 		boardVector[(dataIndex / dimension)][dataIndex % dimension] = dataVector[dataIndex];
 	}
 
@@ -105,6 +108,7 @@ std::vector<int> Board::splitToIntByComma(std::string toSplit)
 		else
 			returnVector.push_back(std::stoi(subStr));
 	}
+
 	return returnVector;
 }
 
